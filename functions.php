@@ -50,7 +50,7 @@ if ( ! function_exists( 'beetroot_test_task_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'beetroot-test-task' ),
+				'menu-header' => esc_html__( 'Header menu', 'beetroot-test-task' ),
 			)
 		);
 
@@ -71,17 +71,6 @@ if ( ! function_exists( 'beetroot_test_task_setup' ) ) :
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'beetroot_test_task_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -117,26 +106,6 @@ function beetroot_test_task_content_width() {
 add_action( 'after_setup_theme', 'beetroot_test_task_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function beetroot_test_task_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'beetroot-test-task' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'beetroot-test-task' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'beetroot_test_task_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function beetroot_test_task_scripts() {
@@ -144,6 +113,7 @@ function beetroot_test_task_scripts() {
 	wp_style_add_data( 'beetroot-test-task-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'beetroot-test-task-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'beetroot-test-task-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -25,35 +25,34 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'beetroot-test-task' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$beetroot_test_task_description = get_bloginfo( 'description', 'display' );
-			if ( $beetroot_test_task_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $beetroot_test_task_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'beetroot-test-task' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+	<header  class="header">
+		<div class="header__container main-container">
+					<?php
+					the_custom_logo();?>
+					<div class="header__lang-widget">
+						<a href="#" class="header__lang-toggle" ><span data-toggle="true">Eng</span></a>
+						<ul class="header__lang-submenu">
+							<li class="header__lang-submenu-item"><a data-toggle href="#">Укр</a></li>
+							<li class="header__lang-submenu-item"><a data-toggle href="#">Рус</a></li>
+						</ul>
+					</div>
+				<nav  class="header__navigation">
+					<button class="header__navigation-btn">
+						<div></div>
+						<div></div>
+						<div></div>
+					</button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-header',
+							'menu_id'        => 'header-navigation',
+							'container'       => 'div',
+							'container_class' => 'header__navigation-wrap',
+							'items_wrap'      => '<ul id="%1$s" class="header__navigation-menu">%3$s</ul>',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->

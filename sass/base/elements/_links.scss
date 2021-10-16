@@ -1,8 +1,9 @@
 a {
-	color: $color__link;
+	color: inherit;
+	text-decoration: none;
 
 	&:visited {
-		color: $color__link-visited;
+		color: inherit;
 	}
 
 	&:hover,
@@ -20,3 +21,4 @@ a {
 		outline: 0;
 	}
 }
+

@@ -10,6 +10,13 @@
 @import "elements/media";
 @import "elements/tables";
 
+// [type=button], [type=submit], a, button {
+    // transition-timing-function: ease-in;
+    // transition-duration: .2s;
+    // transition-property: color,border-color,background-color,opacity,transform;
+
+// }
+
 /* Links
 --------------------------------------------- */
 @import "elements/links";

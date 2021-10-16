@@ -35,3 +35,20 @@ function beetroot_test_task_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'beetroot_test_task_pingback_header' );
+
+add_filter( 'nav_menu_css_class', 'change_menu_item_css_class', 10, 4 );
+add_filter( 'nav_menu_css_class', 'change_menu_items_css_class', 10, 4 );
+
+
+function change_menu_items_css_class( $classes, $item, $args, $depth ) {
+	$classes[] = 'header__navigation-menu__item';
+	return $classes;
+}
+
+function change_menu_item_css_class( $classes, $item, $args, $depth ) {
+	if( 13 === $item->ID  ){
+		$classes[] = 'header__navigation-menu__item--border';
+	}
+
+	return $classes;
+}

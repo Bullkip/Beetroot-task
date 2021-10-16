@@ -21,3 +21,19 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+
+.main-container {
+    max-width: 1200px;
+	width:95%;
+	margin:0 auto;
+}
+
+.header__container{
+    margin-right: auto;
+    margin-left: auto;
+   
+    display: flex;
+    
+    flex-flow: row wrap;
+}

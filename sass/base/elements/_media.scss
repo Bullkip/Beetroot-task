@@ -6,6 +6,8 @@ object {
 }
 
 img {
+	display: inline-block;
+    vertical-align: middle;
 	height: auto; // Make sure images are scaled correctly.
 	max-width: 100%; // Adhere to container width.
 }
