@@ -51,6 +51,9 @@ if ( ! function_exists( 'beetroot_test_task_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-header' => esc_html__( 'Header menu', 'beetroot-test-task' ),
+				'menu-footer_1' => esc_html__( 'Footer menu 1', 'beetroot-test-task' ),
+				'menu-footer_2' => esc_html__( 'Footer menu 2', 'beetroot-test-task' ),
+				'menu-footer_3' => esc_html__( 'Footer menu 3', 'beetroot-test-task' ),
 			)
 		);
 

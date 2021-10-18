@@ -941,6 +941,186 @@ textarea {
 
 /* Footer
 --------------------------------------------- */
+.footer {
+	padding: 100px 0 75px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #3d3935;
+}
+
+.footer-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	flex-flow: wrap;
+}
+
+.footer-navigation-menu__item {
+	font-size: 16px;
+	line-height: 30px;
+	color: #b1b0ae;
+	font-weight: 400;
+}
+
+.footer-navigation-menu__item-head {
+	font-size: 10px;
+	line-height: 15px;
+	color: #64615d;
+	font-weight: 400;
+	margin-bottom: 22px;
+}
+
+.footer-menus {
+	flex-basis: 42%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.footer-menus #footer-pages {
+	align-self: flex-end;
+}
+
+.footer-media {
+	flex-basis: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.footer-media .footer-socials {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 44px;
+}
+
+.footer-media .footer-socials__item {
+	margin-right: 10px;
+}
+
+.footer-media .footer-socials__item a svg :nth-child(1) {
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-socials__item a svg:hover :nth-child(1) {
+	opacity: 0.5;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form {
+	transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form {
+	position: relative;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form__head {
+	color: #e8b229;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form__wrap {
+	position: relative;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form__wrap-button {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 0%;
+	right: 0%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form__wrap-button:before {
+	content: "";
+	background-image: url(assets/image/footer-subscription-arrow.svg);
+	position: absolute;
+	width: 29px;
+	height: 5px;
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	transform: translateY(-50%);
+	top: 50%;
+	right: 0%;
+	z-index: 3;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form label {
+	color: #83807e;
+	font-size: 20px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form label.form-focus {
+	top: 100%;
+	transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form input[type="submit"] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	z-index: -1;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form input[type="email"] {
+	width: 100%;
+	position: relative;
+	color: #83807e;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #504634;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	font-size: 20px;
+	transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form input[type="email"]:focus {
+	outline: none;
+	color: #83807e;
+	border-bottom: 1px solid #e8b229;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form .wpcf7-spinner {
+	display: none;
+}
+
+.footer-media .footer-subscribe .wpcf7 form.sent .wpcf7-response-output {
+	border: none;
+	color: green;
+}
+
 /* Navigation
 --------------------------------------------- */
 .main-navigation {
@@ -1060,14 +1240,13 @@ textarea {
 }
 
 .main-container {
-	max-width: 1200px;
+	max-width: 1170px;
 	width: 95%;
 	margin: 0 auto;
 }
 
 .header__container {
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0 auto;
 	display: flex;
 	flex-flow: row wrap;
 }

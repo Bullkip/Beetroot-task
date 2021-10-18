@@ -1,0 +1,177 @@
+.footer {
+  padding: 100px 0 75px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $color-footer-black;
+  &-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-flow: wrap;
+  }
+  &-navigation-menu {
+    &__item {
+      font-size: 16px;
+      line-height: 30px;
+      color: $color-text-light-grey;
+      font-weight: 400;
+      &-head {
+        font-size: 10px;
+        line-height: 15px;
+        color: $color-text-grey;
+        font-weight: 400;
+        margin-bottom: 22px;
+      }
+    }
+  }
+  &-menus {
+    flex-basis: 42%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    #footer-pages {
+      align-self: flex-end;
+    }
+  }
+
+  &-media {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .footer-socials {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 44px;
+      &__item {
+        margin-right: 10px;
+
+        a svg {
+          :nth-child(1) {
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+          }
+          &:hover {
+            :nth-child(1) {
+              opacity: 0.5;
+              transition: all 0.3s ease-in-out;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -ms-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+    .footer-subscribe {
+      form.wpcf7-form {
+        transition: all 0.3s ease-in-out;
+        .subscribe-form {
+          position: relative;
+          &__head {
+            color: $color-text-gold;
+            text-transform: uppercase;
+            font-size: 10px;
+          }
+          &__wrap {
+            position: relative;
+            &-button {
+              content: "";
+
+              position: absolute;
+              width: 30px;
+              height: 30px;
+              top: 0%;
+              right: 0%;
+              z-index: 10;
+              cursor: pointer;
+              &:before {
+                content: "";
+                background-image: url(assets/image/footer-subscription-arrow.svg);
+                position: absolute;
+                width: 29px;
+                height: 5px;
+                -webkit-background-size: contain;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: translateY(-50%);
+                top: 50%;
+                right: 0%;
+                z-index: 3;
+              }
+            }
+          }
+          label {
+            color: $color-text-email-input;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.3s ease-in-out;
+            &.form-focus {
+              top: 100%;
+              transition: all 0.3s ease-in-out;
+            }
+          }
+          input[type="submit"] {
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            z-index: -1;
+          }
+          input[type="email"] {
+            width: 100%;
+            position: relative;
+            color: $color-text-email-input;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $color-text-gold-light;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            -ms-border-radius: 0;
+            -o-border-radius: 0;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+
+            &:focus {
+              outline: none;
+              color: $color-text-email-input;
+              border-bottom: 1px solid $color-text-gold;
+              transition: all 0.3s ease-in-out;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -ms-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+            }
+          }
+          .wpcf7-spinner {
+            display: none;
+          }
+
+          &-policy {
+          }
+        }
+      }
+      .wpcf7 {
+        form {
+          &.sent {
+            .wpcf7-response-output {
+              border: none;
+              color: green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
