@@ -79,3 +79,23 @@ function change_footer_3_menu_css_classes( $classes, $item, $args, $depth ) {
 
 	return $classes;
 }
+
+// Ajax search 
+add_action( 'wp_ajax_nopriv_beetroot_ajax_search', 'beetroot_ajax_search' );
+add_action( 'wp_ajax_beetroot_ajax_search', 'beetroot_ajax_search' );
+function beetroot_ajax_search(){ 
+	$args = array( 
+		'post_type'      => 'vacancy', 
+		'post_status'    => 'publish', 
+		'order'          => 'DESC', 
+		'orderby'        => 'date', 
+		's'              => $_POST['term'], 
+		'posts_per_page' => -1 
+	); 
+	$query = new WP_Query( $args ); 
+	if(!$query->have_posts()){ 
+	?>
+	<li><a href="#">Ничего не найдено, попробуйте другой запрос</a></li>
+	<?php
+	 }
+}

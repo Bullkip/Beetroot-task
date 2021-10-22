@@ -20,6 +20,7 @@
     width: auto;
     margin-left: 22px;
     display: inline-block;
+
     &:hover .header__lang-toggle {
       color: $color__link-hover;
       & + .header__lang-submenu {
@@ -36,9 +37,7 @@
     ul.header__lang-submenu {
       visibility: hidden;
       opacity: 0;
-      transition-timing-function: ease-in;
-      transition-duration: 0.3s;
-      transition-property: visibility, opacity;
+      transition: all 0.3s ease-in;
     }
     .header__lang-toggle:before {
       content: "";
@@ -58,6 +57,7 @@
       border: none;
       color: #3d3935;
       font-weight: 300;
+      font-size: 15px;
 
       &.header__lang-toggle {
         padding-right: calc(10px + 1.23em);

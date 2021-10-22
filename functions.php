@@ -115,8 +115,10 @@ function beetroot_test_task_scripts() {
 	wp_enqueue_style( 'beetroot-test-task-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'beetroot-test-task-style', 'rtl', 'replace' );
 
+	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'beetroot-test-task-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'beetroot-test-task-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'beetroot-test-task-ajax-search', get_template_directory_uri() . '/js/ajax_search.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

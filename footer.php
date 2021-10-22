@@ -15,7 +15,7 @@
     <div class="footer-container main-container">
         <nav class="footer-menus">
             <?php
-					// menu beetroot header
+					// menu beetroot 
 					$menu_footer_1_id = 3;
 					$menu_footer_1 = wp_get_nav_menu_object( $menu_footer_1_id ); 
 					wp_nav_menu(
@@ -27,7 +27,7 @@
 							'items_wrap'      => '<ul id="%1$s" class="footer-navigation-menu"><li class="footer-navigation-menu__item footer-navigation-menu__item-head">'.$menu_footer_1->name.'</li>%3$s</ul>',
 						)
 					);
-					 // menu company header
+					 // menu company 
 					$menu_footer_2_id = 4;
 					$menu_footer_2 = wp_get_nav_menu_object( $menu_footer_2_id ); 
 					wp_nav_menu(
@@ -40,16 +40,15 @@
 						)
 					);
                    
-				 //  menu info header
-				$menu_footer_3_id = 5;
-				$nav_menu = wp_get_nav_menu_object( $menu_ID );
+				 //  menu info 
+				
 				wp_nav_menu(
 					array(
 						'theme_location' => 'menu-footer_3',
 						'menu_id'        => 'footer-pages',
 						'container'       => '',
 						'container_class' => 'footer__navigation-wrap',
-						'items_wrap'      => '<ul id="%1$s" class="footer-navigation-menu"><li class="footer-navigation-menu__item footer-navigation-menu__item-head">'.$menu_footer_3->name.'</li>%3$s</ul>',
+						'items_wrap'      => '<ul id="%1$s" class="footer-navigation-menu"><li class="footer-navigation-menu__item footer-navigation-menu__item-head"></li>%3$s</ul>',
 					)
 				);
 					?>

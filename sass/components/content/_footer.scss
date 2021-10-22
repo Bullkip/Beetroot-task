@@ -5,6 +5,7 @@
   bottom: 0;
   right: 0;
   background-color: $color-footer-black;
+  z-index: 1;
   &-container {
     display: flex;
     flex-direction: row;

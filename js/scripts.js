@@ -8,6 +8,10 @@ let f = document.querySelector('.wpcf7-form input[type="email"]')
 let l = document.querySelector(".wpcf7-form .subscribe-form label");
 let b = document.querySelector(".subscribe-form__wrap-button");
 
+let searchBtn = document.querySelector(".search-main__input-del");
+let searchForm = document.querySelector('#search-input')
+
+
 
 // header nav
 x.addEventListener("click",
@@ -29,4 +33,17 @@ document.addEventListener('click', (e) => {
 
 b.addEventListener('click',() => {
  document.querySelector(".wpcf7-form").submit();
+})
+
+
+//set input search value to 0 , when x btn clicked
+
+searchBtn.addEventListener('click' , () => {
+        searchForm.value = "";
+         searchBtn.classList.remove("search-main__input-del---show");
+ 
+} )
+
+searchForm.addEventListener('input', () => {
+    searchBtn.classList.add('search-main__input-del--show');
 })
