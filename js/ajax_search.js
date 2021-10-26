@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  $("#search").keypress(function () {
+  $("#search-input").keypress(function () {
     var searchTerm = $(this).val();
     // проверим, если в поле ввода более 2 символов, запускаем ajax
     if (searchTerm.length > 2) {

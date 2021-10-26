@@ -98,7 +98,7 @@
                 </a></li>
             </ul>
             <div class="footer-subscribe">
-				<?php echo do_shortcode( '[contact-form-7 id="5" title="Subscribe form"]' ) ?>
+				<?php echo do_shortcode( '[contact-form-7 id="34" title="Subscribe form"]' ) ?>
 			</div>
         </div>
     </div>
