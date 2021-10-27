@@ -8,8 +8,8 @@ let f = document.querySelector('.wpcf7-form input[type="email"]')
 let l = document.querySelector(".wpcf7-form .subscribe-form label");
 let b = document.querySelector(".subscribe-form__wrap-button");
 
-let searchBtn = document.querySelector(".search-main__input-del");
-let searchForm = document.querySelector('#search-input')
+let filterBtn = document.querySelector(".filter-main__input-del");
+let filterForm = document.querySelector('#filter-input')
 
 let departmentBtn = document.querySelector(".dropdown-department-btn");
 let locationBtn = document.querySelector(".dropdown-department-btn");
@@ -41,16 +41,16 @@ b.addEventListener('click',() => {
 })
 
 
-//set input search value to 0 , when x btn clicked
+//set input filter value to 0 , when x btn clicked
 
-searchBtn.addEventListener('click' , () => {
-        searchForm.value = "";
-         searchBtn.classList.remove('search-main__input-del--show');
+filterBtn.addEventListener('click' , () => {
+        filterForm.value = "";
+         filterBtn.classList.remove('filter-main__input-del--show');
  
 } )
 
-searchForm.addEventListener('input', () => {
-    searchBtn.classList.add('search-main__input-del--show');
+filterForm.addEventListener('input', () => {
+    filterBtn.classList.add('filter-main__input-del--show');
 })
 
 // custom multiselect 
@@ -58,14 +58,13 @@ let arr = [];
     arr_2 = [];
     flag = "";
     inputs = document.querySelectorAll(
-      ".search-main__dropdown-checkbox"
+      ".filter-main__dropdown-checkbox"
     );
-    console.log(inputs)
 
 for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('change' , (e) => {
-    let parentElem = e.target.closest(".search-main__dropdown-wrap");
-        btnElem = parentElem.querySelector(".search-main__dropdown-btn");
+    let parentElem = e.target.closest(".filter-main__dropdown-wrap");
+        btnElem = parentElem.querySelector(".filter-main__dropdown-btn");
         btnElemDefaultValue = btnElem.getAttribute("data-title");
         console.log(parentElem,btnElem,btnElemDefaultValue);
 
@@ -119,17 +118,16 @@ for (let i = 0; i < inputs.length; i++) {
 
 // check - uncheck all checkboxes
     
-let tooggleBtns = document.querySelectorAll(".search-main__dropdown-checkbox--toggle");
-console.log(tooggleBtns)
+let tooggleBtns = document.querySelectorAll(".filter-main__dropdown-checkbox--toggle");
 for (let i = 0; i < tooggleBtns.length; i++) {
   const elem = tooggleBtns[i];
   
 
 
     elem.addEventListener('click', () => {
-    let parentCheckboxes = elem.closest(".search-main__dropdown-list");
+    let parentCheckboxes = elem.closest(".filter-main__dropdown-list");
     checkboxes = parentCheckboxes.querySelectorAll(
-      ".search-main__dropdown-checkbox"
+      ".filter-main__dropdown-checkbox"
     );    
         
         if(!elem.checked) {
@@ -152,5 +150,34 @@ function triggerEvent (element, eventName) {
 let event = new Event(eventName);
 element.dispatchEvent(event);
 };
+
+let tags = document.querySelectorAll(".filter-main__tag-btn");
+    more = document.querySelector(".filter-main__tag.more");
+    less = document.querySelector(".filter-main__tag.less");
+
+
+ for (let i = 0; i < tags.length; i++) {
+     if ( i > 10) {
+         tags[i].classList.add('tag-hide')
+     }
+     
+ } 
+
+more.addEventListener('click', ()=> {
+   for (let i = 0; i < tags.length; i++) {
+     if (i > 10) {
+       tags[i].classList.remove("tag-hide");
+     }
+   } 
+});
+
+less.addEventListener("click", () => {
+  for (let i = 0; i < tags.length; i++) {
+    if (i > 10) {
+      tags[i].classList.add("tag-hide");
+    }
+  }
+});
+
 
 

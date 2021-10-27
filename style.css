@@ -1277,20 +1277,21 @@ main {
 	margin: 0 0 0 0;
 }
 
-.search-main-wrap {
+.filter-main-wrap {
 	display: flex;
 	flex-direction: row;
 	height: 65px;
+	margin-bottom: 30px;
 }
 
-.search-main__input-wrap {
+.filter-main__input-wrap {
 	flex-basis: 50%;
 	max-width: 50%;
 	position: relative;
 	height: 100%;
 }
 
-.search-main__input-wrap:before {
+.filter-main__input-wrap:before {
 	content: "";
 	width: 30px;
 	height: 30px;
@@ -1303,7 +1304,7 @@ main {
 	background-size: contain;
 }
 
-.search-main__input {
+.filter-main__input {
 	width: 100%;
 	height: 100%;
 	background-color: #fafaf8;
@@ -1316,22 +1317,22 @@ main {
 	transition: all 0.3s ease-in;
 }
 
-.search-main__input[type="text"] {
+.filter-main__input[type="text"] {
 	padding: 0 65px;
 }
 
-.search-main__input[type="text"]::placeholder {
+.filter-main__input[type="text"]::placeholder {
 	color: #63605c;
 	font-weight: 300;
 	font-family: "Roboto";
 }
 
-.search-main__input:focus {
+.filter-main__input:focus {
 	border-color: #bc204b;
 	transition: all 0.3s ease-in;
 }
 
-.search-main__input-del {
+.filter-main__input-del {
 	position: absolute;
 	right: 5%;
 	transform: translateY(-50%);
@@ -1347,35 +1348,35 @@ main {
 	transition: all 0.3s ease-in;
 }
 
-.search-main__input-del--show {
+.filter-main__input-del--show {
 	opacity: 1;
 	transition: all 0.3s ease-in;
 }
 
-.search-main__dropdown-wrap {
+.filter-main__dropdown-wrap {
 	flex-basis: 25%;
 	max-width: 25%;
 	position: relative;
 	transition: all 0.3s ease-in;
 }
 
-.search-main__dropdown-wrap:hover .search-main__dropdown-btn {
+.filter-main__dropdown-wrap:hover .filter-main__dropdown-btn {
 	border-color: #bc204b;
 	transition: all 0.3s ease-in;
 }
 
-.search-main__dropdown-wrap:hover .search-main__dropdown-btn + .search-main__dropdown-list-wrap {
+.filter-main__dropdown-wrap:hover .filter-main__dropdown-btn + .filter-main__dropdown-list-wrap {
 	visibility: visible;
 	opacity: 1;
 	transition: all 0.2s ease-in-out;
 }
 
-.search-main__dropdown-wrap:hover .search-main__dropdown-btn:before {
+.filter-main__dropdown-wrap:hover .filter-main__dropdown-btn:before {
 	transform: rotate(-135deg);
 	border-top-color: #bc204b;
 }
 
-.search-main__dropdown-btn {
+.filter-main__dropdown-btn {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -1393,7 +1394,7 @@ main {
 	transition: all 0.3s ease-in;
 }
 
-.search-main__dropdown-btn:before {
+.filter-main__dropdown-btn:before {
 	content: "";
 	position: absolute;
 	width: 8px;
@@ -1406,9 +1407,10 @@ main {
 	transition: all 0.3s ease-in;
 }
 
-.search-main__dropdown-list-wrap {
+.filter-main__dropdown-list-wrap {
 	min-width: 100%;
 	position: absolute;
+	z-index: 50;
 	top: calc(100% + 10px);
 	right: 0;
 	visibility: hidden;
@@ -1421,40 +1423,40 @@ main {
 	box-shadow: 0 10px 50px rgba(0, 0, 0, 0.07);
 }
 
-.search-main__dropdown-list {
+.filter-main__dropdown-list {
 	width: 100%;
 }
 
-.search-main__dropdown-list--academy .search-main__dropdown-item--head {
+.filter-main__dropdown-list--academy .filter-main__dropdown-item--head {
 	color: #7bceb1;
 }
 
-.search-main__dropdown-list--academy .search-main__dropdown-item label:not(.checkbox-toggle-label):before {
+.filter-main__dropdown-list--academy .filter-main__dropdown-item label:not(.checkbox-toggle-label):before {
 	border-color: #7bceb1;
 }
 
-.search-main__dropdown-list--academy .search-main__dropdown-item label:hover:before {
+.filter-main__dropdown-list--academy .filter-main__dropdown-item label:hover:before {
 	background-color: #7bceb1;
 }
 
-.search-main__dropdown-list--academy .search-main__dropdown-item .search-main__dropdown-checkbox:checked + label:before {
+.filter-main__dropdown-list--academy .filter-main__dropdown-item .filter-main__dropdown-checkbox:checked + label:before {
 	background-color: #7bceb1;
 }
 
-.search-main__dropdown--double-col .search-main__dropdown-list {
+.filter-main__dropdown--double-col .filter-main__dropdown-list {
 	min-width: 190px;
 }
 
-.search-main__dropdown--double-col :nth-child(1).search-main__dropdown-list {
+.filter-main__dropdown--double-col :nth-child(1).filter-main__dropdown-list {
 	margin-right: 30px;
 }
 
-.search-main__dropdown-item {
+.filter-main__dropdown-item {
 	font-size: 17px;
 	font-weight: 300;
 }
 
-.search-main__dropdown-item label {
+.filter-main__dropdown-item label {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -1463,7 +1465,7 @@ main {
 	position: relative;
 }
 
-.search-main__dropdown-item label:not(.checkbox-toggle-label):before {
+.filter-main__dropdown-item label:not(.checkbox-toggle-label):before {
 	content: "";
 	top: 6px;
 	left: 0;
@@ -1479,16 +1481,16 @@ main {
 	transition: all .3s ease-in;
 }
 
-.search-main__dropdown-item label:hover:before {
+.filter-main__dropdown-item label:hover:before {
 	background-color: #bc204b;
 }
 
-.search-main__dropdown-item label.checkbox-toggle-label {
+.filter-main__dropdown-item label.checkbox-toggle-label {
 	display: block;
 	padding-top: 12px;
 }
 
-.search-main__dropdown-item input {
+.filter-main__dropdown-item input {
 	height: 0;
 	width: 0;
 	position: absolute;
@@ -1496,7 +1498,7 @@ main {
 	appearance: none;
 }
 
-.search-main__dropdown-item span {
+.filter-main__dropdown-item span {
 	margin-left: auto;
 	font-size: 14px;
 	font-weight: 400;
@@ -1504,44 +1506,117 @@ main {
 	color: #3d393599;
 }
 
-.search-main__dropdown-item span.toggle {
+.filter-main__dropdown-item span.toggle {
 	font-size: 12px;
 	text-transform: unset;
 	text-align: left;
 }
 
-.search-main__dropdown-item span.toggle-select {
+.filter-main__dropdown-item span.toggle-select {
 	display: block;
 }
 
-.search-main__dropdown-item span.toggle-deselect {
+.filter-main__dropdown-item span.toggle-deselect {
 	display: none;
 }
 
-.search-main__dropdown-item--head {
+.filter-main__dropdown-item--head {
 	font-size: 11px;
 	font-weight: 400;
 	text-transform: uppercase;
 	color: #bc204b;
 }
 
-.search-main__dropdown-checkbox--toggle.hide + span.toggle-select {
+.filter-main__dropdown-checkbox--toggle.hide + span.toggle-select {
 	display: none;
 }
 
-.search-main__dropdown-checkbox--toggle.hide ~ span.toggle-deselect {
+.filter-main__dropdown-checkbox--toggle.hide ~ span.toggle-deselect {
 	display: block;
 }
 
-.search-main .search-main__dropdown-checkbox:checked + label:before {
+.filter-main .filter-main__dropdown-checkbox:checked + label:before {
 	background-color: #bc204b;
 	background-image: url(assets/image/-e-checkmark.svg);
 	transition: all .3s ease-in;
 }
 
-.search-main :nth-last-child(2).search-main__dropdown-wrap .search-main__dropdown-btn {
+.filter-main :nth-last-child(2).filter-main__dropdown-wrap .filter-main__dropdown-btn {
 	border-top-right-radius: 30px;
 	border-bottom-right-radius: 30px;
+}
+
+.filter-main__posts .filter-main__tags {
+	width: 100%;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.filter-main__posts .filter-main__tag {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5.5px 10px;
+	border: 1px solid #e1e1de;
+	border-radius: 30px;
+	background-color: transparent;
+	font-size: 14px;
+	font-weight: 400;
+	transition: position .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag span {
+	margin-left: 4px;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #3d393599;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag:hover {
+	color: #fff;
+	border-color: #bc204b;
+	background-color: #bc204b;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag:hover span {
+	color: #fff;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag.tag-hide {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+	transition: position .1s ease;
+}
+
+.filter-main__posts .filter-main__tag.tag-hide ~ .less {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag.tag-hide ~ .more {
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag ~ .less {
+	opacity: 1;
+	visibility: visible;
+	transition: all .3s ease-in;
+}
+
+.filter-main__posts .filter-main__tag ~ .more {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .3s ease-in;
 }
 
 /* Comments

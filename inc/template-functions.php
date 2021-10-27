@@ -99,3 +99,17 @@ function beetroot_ajax_search(){
 	<?php
 	 }
 }
+
+// show tags on post add/edit page
+function show_all_tags ( $args ) {
+    if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_POST['action'] ) && $_POST['action'] === 'get-tagcloud' ){
+		unset( $args['number'] );
+		$args['hide_empty']= 0 ;
+	}
+        
+    return $args;
+}
+
+add_filter( 'get_terms_args', 'show_all_tags' );
+
+
