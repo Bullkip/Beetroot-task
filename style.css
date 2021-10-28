@@ -1547,6 +1547,10 @@ main {
 	border-bottom-right-radius: 30px;
 }
 
+.filter-main #svg-sprite symbol path {
+	fill: inherit;
+}
+
 .filter-main__posts .filter-main__tags {
 	width: 100%;
 	position: relative;
@@ -1775,6 +1779,22 @@ main {
 
 .filter-main__posts .filter-main__item-tag:last-of-type i {
 	display: none;
+}
+
+.filter-main__posts .filter-main__item.offices .filter-main__item-location svg path {
+	fill: #bc204b;
+}
+
+.filter-main__posts .filter-main__item.offices .filter-main__item-tag-icon {
+	fill: #bc204b;
+}
+
+.filter-main__posts .filter-main__item.academies .filter-main__item-location svg path {
+	fill: #7bceb1;
+}
+
+.filter-main__posts .filter-main__item.academies .filter-main__item-tag-icon {
+	fill: #7bceb1;
 }
 
 /* Comments

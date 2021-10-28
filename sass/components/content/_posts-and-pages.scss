@@ -317,6 +317,11 @@ main {
     border-bottom-right-radius: 30px;
   }
 
+  #svg-sprite {
+    symbol path {
+      fill: inherit;
+    }
+  }
   &__posts {
     .filter-main {
       &__tags {
@@ -522,17 +527,38 @@ main {
           span {
             display: none;
           }
-            &:not(:last-of-type) {
-              svg {
-                margin-right: 10px;
-              }
+          &:not(:last-of-type) {
+            svg {
+              margin-right: 10px;
             }
+          }
 
           &:last-of-type i {
             display: none;
           }
         }
+
+        &.offices {
+          .filter-main__item-location svg {
+            path {
+              fill: $color-text-title;
+            }
+          }
+          .filter-main__item-tag-icon {
+            fill: $color-text-title;
+          }
+        }
+        &.academies {
+          .filter-main__item-location svg {
+            path {
+              fill: $color-text-green;
+            }
+          }
+          .filter-main__item-tag-icon {
+            fill: $color-text-green;
+          }
+        }
       }
     }
   }
-}
+  }
