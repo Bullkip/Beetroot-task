@@ -10,7 +10,7 @@
   &__container {
     align-items: center;
     justify-content: flex-start;
-    height: 90px;
+    min-height: 80px;
   }
   .custom-logo {
     max-width: 140px;
@@ -18,7 +18,7 @@
   &__lang-widget {
     position: relative;
     width: auto;
-    margin-left: 22px;
+    margin-left: 15px;
     display: inline-block;
 
     &:hover .header__lang-toggle {
@@ -29,7 +29,7 @@
         transition: all 0.3s ease-in-out;
       }
       &:before {
-        transform: rotate(-135deg);
+        transform: rotate(45deg);
         border-top-color: $color__link-hover;
       }
     }
@@ -46,9 +46,9 @@
       height: 8px;
       border-left: 1px solid #8b8886;
       border-top: 1px solid #8b8886;
-      right: 10px;
-      top: calc(50% - 0.175em);
-      transform: rotate(45deg);
+      right: 13px;
+      top: calc(50% - 0.27em);
+      transform: rotate(-135deg);
       transition: all 0.3s ease-in;
     }
 
@@ -57,7 +57,7 @@
       border: none;
       color: #3d3935;
       font-weight: 300;
-      font-size: 15px;
+      font-size: 0.9375rem;
 
       &.header__lang-toggle {
         padding-right: calc(10px + 1.23em);
@@ -163,17 +163,20 @@
       display: flex;
       align-items: center;
       transition: all 0.3s ease-in-out;
+      :nth-last-child(2) {
+         margin-right: 18px;
+      }
       &__item {
         color: #3d3935;
-        padding-right: 16px;
+        margin-right: 20px;
         &.header__navigation-menu__item--border {
-          padding-right: 0;
+          margin-right: 0;
           a {
             display: inline-block;
             height: 44px;
             line-height: 44px;
             border-radius: 28px;
-            padding: 0 22px;
+            padding: 0 17px;
             border: 1px solid $color-menu-btn--border;
             color: $color__link-hover;
             background-color: transparent;
@@ -188,7 +191,7 @@
         a {
           padding: 0;
           font-weight: 300;
-          font-size: 16px;
+          font-size: 1rem;
           line-height: 4;
           letter-spacing: 0.2px;
           position: relative;
@@ -234,7 +237,7 @@
         border-bottom-right-radius: 60% 30px;
         &.change {
           transform: inherit;
-          top: 90px;
+          top: 80px;
           left: 0;
           right: 0;
           background-color: $color__link-hover;
@@ -263,7 +266,7 @@
         -ms-transition: all 1s ease-in;
         -o-transition: all 1s ease-in;
         a {
-          font-size: 18px;
+          font-size: 1.125rem;
         }
 
         &__item {

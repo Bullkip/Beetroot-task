@@ -1,6 +1,6 @@
 .footer {
   padding: 100px 0 75px;
-  // position: fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
@@ -15,16 +15,17 @@
   }
   &-navigation-menu {
     &__item {
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 30px;
       color: $color-text-light-grey;
       font-weight: 400;
       &-head {
-        font-size: 10px;
+        font-size: 0.625rem;
         line-height: 15px;
+        letter-spacing:1px;
         color: $color-text-grey;
         font-weight: 400;
-        margin-bottom: 22px;
+        margin-bottom: 13px;
       }
     }
   }
@@ -33,8 +34,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: -7px;
     #footer-pages {
       align-self: flex-end;
+    }
+    ul:nth-child(2) {
+      padding-left: 15px;
     }
   }
 
@@ -46,7 +51,7 @@
     .footer-socials {
       display: flex;
       flex-direction: row;
-      margin-bottom: 44px;
+      margin-bottom: 66px;
       &__item {
         margin-right: 10px;
 
@@ -79,10 +84,15 @@
           &__head {
             color: $color-text-gold;
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: 0.625rem;
+            letter-spacing: 0.95px;
+            position: absolute;
+            top: -89%;
+            left: -0.5%;
           }
           &__wrap {
             position: relative;
+            margin-bottom: 3px;
             &-button {
               content: "";
 
@@ -104,18 +114,19 @@
                 background-repeat: no-repeat;
                 background-position: center;
                 transform: translateY(-50%);
-                top: 50%;
+                top: 28%;
                 right: 0%;
                 z-index: 3;
               }
             }
           }
           label {
-            color: $color-text-email-input;
-            font-size: 20px;
+            color: #83807e;
+            font-size: 1.125rem;
+            letter-spacing: -0.3px;
             position: absolute;
-            left: 0;
-            top: 0;
+            left: -0.5%;
+            top: -11%;
             transition: all 0.3s ease-in-out;
             &.form-focus {
               top: 100%;
@@ -141,7 +152,7 @@
             -moz-border-radius: 0;
             -ms-border-radius: 0;
             -o-border-radius: 0;
-            font-size: 20px;
+            font-size: 1.125rem;
             transition: all 0.3s ease-in-out;
 
             &:focus {

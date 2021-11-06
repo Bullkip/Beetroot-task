@@ -80,24 +80,159 @@ function change_footer_3_menu_css_classes( $classes, $item, $args, $depth ) {
 	return $classes;
 }
 
-// Ajax search 
-add_action( 'wp_ajax_nopriv_beetroot_ajax_search', 'beetroot_ajax_search' );
-add_action( 'wp_ajax_beetroot_ajax_search', 'beetroot_ajax_search' );
-function beetroot_ajax_search(){ 
-	$args = array( 
-		'post_type'      => 'vacancy', 
-		'post_status'    => 'publish', 
-		'order'          => 'DESC', 
-		'orderby'        => 'date', 
-		's'              => $_POST['term'], 
-		'posts_per_page' => -1 
-	); 
-	$query = new WP_Query( $args ); 
-	if(!$query->have_posts()){ 
-	?>
-	<li><a href="#">Ничего не найдено, попробуйте другой запрос</a></li>
-	<?php
-	 }
+// Ajax filtering 
+
+add_action( 'wp_enqueue_scripts', 'true_filter_scripts' );
+ 
+function true_filter_scripts() {
+ 
+ 
+	wp_register_script( 'filter', get_stylesheet_directory_uri() . '/js/jquery_scripts.js', array( 'jquery' ), time(), true );
+	wp_localize_script( 'filter', 'true_obj', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	wp_enqueue_script( 'filter' );
+ 
+}
+
+add_action( 'wp_ajax_myfilter', 'filter' ); 
+add_action( 'wp_ajax_nopriv_myfilter', 'filter' );
+ 
+function filter(){
+	
+
+	$tax_query = array(
+
+		'relation' => 'AND',
+);
+	$all_offices = array();
+	$all_department = array();
+	$all_academies = array();
+
+	$departments = get_terms( array( 'taxonomy' => 'department' ) );
+	$offices = get_terms( array( 'taxonomy' => 'offices' ) );
+	$academies = get_terms( array( 'taxonomy' => 'academies' ) );
+ 
+
+
+	// for departments 
+	if( $departments ) {
+		foreach( $departments as $department ) {
+			if( isset( $_POST['department_' . $department->term_id ] ) && $_POST['department_' . $department->term_id] == 'on' )
+				$all_department[] = $department->term_id;
+		}
+		
+		if( count( $all_department ) > 0 ) {
+			$tax_query[] = array(
+				
+				array(
+					'taxonomy' => 'department',
+					'field' => 'id',
+					'terms'=> $all_department,
+				)
+			);
+		}
+	}
+
+
+	// for offices 
+		if( $offices  ) {
+			foreach( $offices as $office ) {
+				if( isset( $_POST['office_' . $office->term_id ] ) && $_POST['office_' . $office->term_id] == 'on' )
+					$all_offices[] = $office->term_id;
+			}
+
+		
+			
+			if( count( $all_offices ) > 0 ) {
+				$tax_query[] = array(
+
+					array(
+						'taxonomy' => 'offices',
+						'field' => 'id',
+						'terms'=> $all_offices,
+			
+					)
+				
+				);
+			}
+	}
+
+		// for offices 
+		if( $academies ) {
+			foreach( $academies as $academy ) {
+				if( isset( $_POST['academy_' . $academy->term_id ] ) && $_POST['academy_' . $academy->term_id] == 'on' )
+					$all_academies[] = $academy->term_id;
+			}
+			
+			if( count( $all_academies ) > 0 ) {
+				$tax_query[] = array(
+					
+					array(
+						'taxonomy' => 'academies',
+						'field' => 'id',
+						'terms'=> $all_academies,
+			
+					)
+				);
+			}
+	}
+
+
+
+	
+    // // for search title post 
+	// if (isset($_POST[filter-input])) {
+	// 	$args = array(
+    //         'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+    //         'tax_query' => $tax_query,
+    //         's' => $_GET['filter-input'],
+    //     );
+
+	// } else {
+		
+	// 		$args = array(
+	// 	'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+	// 	'tax_query' => $tax_query,
+
+	// );
+	// }
+
+			$args = array(
+		'posts_per_page' => -1,
+		'post_type'   => 'vacancy',
+		'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+		'order'	=> 'DESC', // ASC или DESC
+		'tax_query' => $tax_query,
+
+	);
+
+	
+
+	// Цикл
+	global $post;
+
+	// $myposts = get_posts( $args );
+
+	$query = new WP_Query;
+    $myposts = $query->query($args);
+
+	foreach( $myposts as $post ){
+	
+	setup_postdata($post);
+	
+
+	get_template_part( 'template-parts/content-job-posts');
+
+	}
+
+	wp_reset_postdata();
+ 
+	die();
 }
 
 // show tags on post add/edit page
@@ -111,5 +246,3 @@ function show_all_tags ( $args ) {
 }
 
 add_filter( 'get_terms_args', 'show_all_tags' );
-
-

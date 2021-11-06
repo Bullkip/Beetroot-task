@@ -1,15 +1,13 @@
-'use sctrict'
+"use sctrict";
+
+let headerNavBtn = document.querySelector(".header__navigation-btn");
+let headerNavWrap = document.querySelector(".header__navigation-wrap");
+
+let customFormEmailField = document.querySelector('.wpcf7-form input[type="email"]');
+let customFormEmailLabel= document.querySelector(".wpcf7-form .subscribe-form label");
+let customFormBtnSubmit = document.querySelector(".subscribe-form__wrap-button");
 
 
-let x = document.querySelector('.header__navigation-btn');
-let d = document.querySelector('.header__navigation-wrap');
-
-let f = document.querySelector('.wpcf7-form input[type="email"]')
-let l = document.querySelector(".wpcf7-form .subscribe-form label");
-let b = document.querySelector(".subscribe-form__wrap-button");
-
-let filterBtn = document.querySelector(".filter-main__input-del");
-let filterForm = document.querySelector('#filter-input')
 
 let departmentBtn = document.querySelector(".dropdown-department-btn");
 let locationBtn = document.querySelector(".dropdown-department-btn");
@@ -17,167 +15,245 @@ let locationBtn = document.querySelector(".dropdown-department-btn");
 let defaultDepartmentValue = departmentBtn.value;
 let defaultLocationValue = locationBtn.value;
 
-
 // header nav
-x.addEventListener("click",
-function(){
-    x.classList.toggle('change');
-    d.classList.toggle('change');
-})
+headerNavBtn.addEventListener("click", function () {
+  headerNavBtn.classList.toggle("change");
+  headerNavWrap.classList.toggle("change");
+});
 
 //  footer toggle label from subscription form
-f.addEventListener("click" , (e) => {
-    l.classList.add('form-focus')
-})
+ customFormEmailField.addEventListener("click", (e) => {
+   customFormEmailLabel.classList.add("form-focus");
+ });
 
-document.addEventListener('click', (e) => {
-    if(e.target != f) {
-        l.classList.remove("form-focus");
-    }
-})
+//  global document click (condition click cf7 email field) 
+document.addEventListener("click", (e) => {
+  if (e.target != customFormEmailField) {
+    customFormEmailLabel.classList.remove("form-focus");
+  }
+});
 
-b.addEventListener('click',() => {
- document.querySelector(".wpcf7-form").submit();
-})
+customFormBtnSubmit.addEventListener("click", () => {
+  document.querySelector(".wpcf7-form").submit();
+});
 
+// footer paralax
+
+let footerHeight = document.querySelector('footer').offsetHeight,
+    mainMarginBoottom = document.querySelector("main").style.marginBottom = `${footerHeight}px`;
 
 //set input filter value to 0 , when x btn clicked
 
-filterBtn.addEventListener('click' , () => {
-        filterForm.value = "";
-         filterBtn.classList.remove('filter-main__input-del--show');
- 
-} )
+// let filterBtn = document.querySelector(".filter-main__input-del");
+// let filterForm = document.querySelector("#filter-input");
 
-filterForm.addEventListener('input', () => {
-    filterBtn.classList.add('filter-main__input-del--show');
-})
+// filterBtn.addEventListener("click", () => {
+//   filterForm.value = "";
+//   filterBtn.classList.remove("filter-main__input-del--show");
+// });
 
-// custom multiselect 
-let arr = [];
-    arr_2 = [];
-    flag = "";
-    inputs = document.querySelectorAll(
-      ".filter-main__dropdown-checkbox"
-    );
+// filterForm.addEventListener("input", () => {
+//   filterBtn.classList.add("filter-main__input-del--show");
+// });
 
-for (let i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener('change' , (e) => {
+// custom multiselect
+let arrCheckboxes = [];
+arrCheckboxes_2 = [];
+flag = "";
+dropdownsCheckboxes = document.querySelectorAll(".filter-main__dropdown-checkbox");
+
+for (let i = 0; i < dropdownsCheckboxes.length; i++) {
+  dropdownsCheckboxes[i].addEventListener("change", (e) => {
     let parentElem = e.target.closest(".filter-main__dropdown-wrap");
-        btnElem = parentElem.querySelector(".filter-main__dropdown-btn");
-        btnElemDefaultValue = btnElem.getAttribute("data-title");
-        console.log(parentElem,btnElem,btnElemDefaultValue);
+    btnElem = parentElem.querySelector(".filter-main__dropdown-btn");
+    btnElemDefaultValue = btnElem.getAttribute("data-title");
+    console.log(parentElem, btnElem, btnElemDefaultValue);
 
-         if (flag == "") {
-             flag =  btnElemDefaultValue;             
-         } 
+    if (flag == "") {
+      flag = btnElemDefaultValue;
+    }
 
-         if (flag == btnElemDefaultValue) {
-              
-             if (e.target.checked) {
-               let elem = e.target.getAttribute("data-title");
-               arr.push(elem);
+    if (flag == btnElemDefaultValue) {
+      if (e.target.checked) {
+        let elemCheckbox = e.target.getAttribute("data-title");
+        arrCheckboxes.push(elemCheckbox);
 
-               btnElem.innerHTML = arr.join();
-             } else {
-               let elem = e.target.getAttribute("data-title");
-               index = arr.indexOf(elem);
-               arr.splice(index, 1);
+        btnElem.innerHTML = arrCheckboxes.join();
+      } else {
+        let elemCheckbox = e.target.getAttribute("data-title");
+        index = arrCheckboxes.indexOf(elemCheckbox);
+        arrCheckboxes.splice(index, 1);
 
-               if (arr.length == 0) {
-                 btnElem.innerHTML = btnElemDefaultValue;
-               } else {
-                 btnElem.innerHTML = arr.join();
-               }
-             }
+        if (arrCheckboxes.length == 0) {
+          btnElem.innerHTML = btnElemDefaultValue;
+        } else {
+          btnElem.innerHTML = arrCheckboxes.join();
+        }
+      }
+    } else {
+      if (e.target.checked) {
+        let elemCheckbox = e.target.getAttribute("data-title");
+        arrCheckboxes_2.push(elemCheckbox);
 
-         } else {
-                
-              if (e.target.checked) {
-                let elem = e.target.getAttribute("data-title");
-                arr_2.push(elem);
+        btnElem.innerHTML = arrCheckboxes_2.join();
+      } else {
+        let elemCheckbox = e.target.getAttribute("data-title");
+        index = arrCheckboxes_2.indexOf(elemCheckbox);
+        arrCheckboxes_2.splice(index, 1);
 
-                btnElem.innerHTML = arr_2.join();
-              } else {
-                let elem = e.target.getAttribute("data-title");
-                index = arr_2.indexOf(elem);
-                arr_2.splice(index, 1);
-
-                if (arr_2.length == 0) {
-                  btnElem.innerHTML = btnElemDefaultValue;
-                } else {
-                  btnElem.innerHTML = arr_2.join();
-                }
-              }
-         }
-      
-       
-    })
-    
+        if (arrCheckboxes_2.length == 0) {
+          btnElem.innerHTML = btnElemDefaultValue;
+        } else {
+          btnElem.innerHTML = arrCheckboxes_2.join();
+        }
+      }
+    }
+  });
 }
 
 // check - uncheck all checkboxes
-    
-let tooggleBtns = document.querySelectorAll(".filter-main__dropdown-checkbox--toggle");
+
+let tooggleBtns = document.querySelectorAll(
+  ".filter-main__dropdown-checkbox--toggle"
+);
 for (let i = 0; i < tooggleBtns.length; i++) {
-  const elem = tooggleBtns[i];
-  
+  const toggleBtn = tooggleBtns[i];
 
-
-    elem.addEventListener('click', () => {
-    let parentCheckboxes = elem.closest(".filter-main__dropdown-list");
-    checkboxes = parentCheckboxes.querySelectorAll(
+  toggleBtn.addEventListener("click", () => {
+    let parentCheckboxes = toggleBtn.closest(".filter-main__dropdown-list");
+    currentCheckboxes = parentCheckboxes.querySelectorAll(
       ".filter-main__dropdown-checkbox"
-    );    
-        
-        if(!elem.checked) {
-            elem.classList.remove('hide')
-            for (let i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = false;
-                triggerEvent(checkboxes[i], "change");
-            }
-        }else{
-            elem.classList.add("hide");
-              for (let i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = true; 
-                 triggerEvent(checkboxes[i], "change");
-              }
-        }
-    })
+    );
+
+    if (!toggleBtn.checked) {
+      toggleBtn.classList.remove("hide");
+      for (let i = 0; i < currentCheckboxes.length; i++) {
+       const currentCheckbox = currentCheckboxes[i];
+        currentCheckbox.checked = false;
+        triggerEvent(currentCheckbox, "change");
+      }
+    } else {
+      toggleBtn.classList.add("hide");
+      for (let i = 0; i < currentCheckboxes.length; i++) {
+        const currentCheckbox = currentCheckboxes[i];
+        currentCheckbox.checked = true;
+        triggerEvent(currentCheckbox, "change");
+      }
+    }
+  });
 }
 
-function triggerEvent (element, eventName) {
-let event = new Event(eventName);
-element.dispatchEvent(event);
-};
+function triggerEvent(element, eventName) {
+  let event = new Event(eventName);
+  element.dispatchEvent(event);
+}
+
+
+
+// more , less collapse
 
 let tags = document.querySelectorAll(".filter-main__tag-btn");
-    more = document.querySelector(".filter-main__tag.more");
-    less = document.querySelector(".filter-main__tag.less");
+moreBtn = document.querySelector(".filter-main__tag.more");
 
+for (let i = 0; i < tags.length; i++) {
+  if (i > 10) {
+    tags[i].classList.add("tag-hide");
+  }
+}
 
- for (let i = 0; i < tags.length; i++) {
-     if ( i > 10) {
-         tags[i].classList.add('tag-hide')
-     }
-     
- } 
-
-more.addEventListener('click', ()=> {
-   for (let i = 0; i < tags.length; i++) {
-     if (i > 10) {
-       tags[i].classList.remove("tag-hide");
-     }
-   } 
-});
-
-less.addEventListener("click", () => {
+moreBtn.addEventListener("click", () => {
   for (let i = 0; i < tags.length; i++) {
     if (i > 10) {
-      tags[i].classList.add("tag-hide");
+      tags[i].classList.toggle("tag-hide");
+      
     }
+  }
+  if (moreBtn.textContent == "more") {
+    console.log("yes");
+    moreBtn.innerText = 'less';
+  } else {
+    console.log("no");
+     moreBtn.innerText = "more";
   }
 });
 
 
+// Isotope modify, for disable default grid layout
+Isotope.Item.prototype._create = function () {
+  this.id = this.layout.itemGUID++;
+  this._transn = {
+    ingProperties: {},
+    clean: {},
+    onEnd: {},
+  };
+  this.sortData = {};
+};
 
+Isotope.Item.prototype.layoutPosition = function () {
+  this.emitEvent("layout", [this]);
+};
+
+Isotope.prototype.arrange = function (opts) {
+  this.option(opts);
+  this._getIsInstant();
+  this.filteredItems = this._filter(this.items);
+  this._isLayoutInited = true;
+};
+
+Isotope.LayoutMode.create("none");
+
+// // isotope filter by tags, custom categories
+
+// let iso = new Isotope(".filter-main__items", {
+//   itemSelector: ".filter-main__item",
+//   layoutMode: "none",
+
+// });
+
+// // let masonryElems = document.querySelectorAll(".filter-main__item");
+
+// // bind filter button click
+// let filtersElem = document.querySelector(".filter-main__tags");
+// filtersElem.addEventListener("click", function (event) {
+//   console.log(event.target)
+//   // only work with buttons
+//   if (!matchesSelector(event.target, "button")) {
+//     return;
+//   }
+//   let filterValue = event.target.getAttribute("data-filter");
+
+//   iso.arrange({ filter: filterValue });
+// });
+
+// layout post tabs
+let layoutBtns = document.querySelectorAll(
+  "button.filter-main__tag-layout-item"
+);
+postsParent = document.querySelector(".filter-main__items");
+
+let setIndex = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].setAttribute("data-index", i);
+  }
+};
+
+for (let i = 0; i < layoutBtns.length; i++) {
+  const layoutBtn = layoutBtns[i];
+  setIndex(layoutBtns);
+
+  layoutBtn.addEventListener("click", () => {
+    if (!layoutBtn.classList.contains("filter-main__tag-layout-item--active")) {
+      layoutBtn.classList.add("filter-main__tag-layout-item--active");
+    }
+    let elemIndex = layoutBtn.getAttribute("data-index");
+    newArr = [...layoutBtns];
+    newArr.splice(elemIndex, 1);
+    newArr[0].classList.remove("filter-main__tag-layout-item--active");
+
+    if (layoutBtn.classList.contains('list')) {
+      postsParent.classList.toggle("filter-main__items--row");
+    } else {
+      postsParent.classList.toggle("filter-main__items--row"); 
+    }
+  });
+}
