@@ -1001,12 +1001,15 @@ textarea {
 		font-size: 1.125rem;
 	}
 	.header__navigation-menu__item {
-		padding: 0;
+		margin: 0;
 		color: #fff;
 	}
 	.header__navigation-menu__item.header__navigation-menu__item--border a {
 		border: none;
 		color: #fff;
+	}
+	.header__navigation-menu :nth-last-child(2) {
+		margin-right: 0px;
 	}
 }
 
@@ -1435,7 +1438,6 @@ main {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	height: 65px;
 	margin-bottom: 28px;
 }
 
@@ -1482,7 +1484,7 @@ main {
 }
 
 .filter-main__input[type="text"] {
-	padding: 0 65px;
+	padding: 18.5px 65px;
 }
 
 .filter-main__input[type="text"]::-webkit-input-placeholder {
@@ -1608,6 +1610,7 @@ main {
 	padding: 0 40px 0 23px;
 	background-color: #fafaf8;
 	font-size: 1.1875rem;
+	line-height: 3.9375rem;
 	font-weight: 300;
 	letter-spacing: 0.46px;
 	text-align: left;

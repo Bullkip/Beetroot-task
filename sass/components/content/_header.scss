@@ -314,14 +314,20 @@
           font-size: 1.125rem;
         }
 
+
         &__item {
-          padding: 0;
+          margin: 0;
           color: $color-white-text;
           &.header__navigation-menu__item--border a {
             border: none;
             color: $color-white-text;
           }
+         
         }
+
+        :nth-last-child(2) {
+    margin-right: 0px;
+}
       }
     }
   }

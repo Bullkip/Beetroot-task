@@ -129,13 +129,13 @@ get_header()
                                 $tags = get_terms( $args_4 );
 
                                 foreach( $tags as $tag ){
-                                    echo "<button class='filter-main__tag filter-main__tag-btn' data-filter='.{$tag->slug}'> {$tag->name}<span>{$tag->count}</span></button>";
+                                    echo "<button type='button' class='filter-main__tag filter-main__tag-btn' data-filter='.{$tag->slug}'> {$tag->name}<span>{$tag->count}</span></button>";
                                 }
                             ?>
-                    <button class="filter-main__tag  more">more</button>
-                    <!-- <button class="filter-main__tag  less">less</button> -->
+                    <button type="button" class="filter-main__tag  more">more</button>
+                   
                     <div class="filter-main__tag-layout-mode">
-                        <button
+                        <button type="button"
                             class="filter-main__tag filter-main__tag-layout-item filter-main__tag-layout-item--active grid">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="12px" height="12px">
@@ -143,7 +143,7 @@ get_header()
                                     d="M10.686,11.502 L8.212,11.502 C7.509,11.502 6.941,10.915 6.941,10.190 L6.941,8.283 C6.941,7.558 7.509,6.971 8.212,6.971 L10.686,6.971 C11.389,6.971 11.958,7.558 11.958,8.283 L11.958,10.190 C11.958,10.915 11.389,11.502 10.686,11.502 ZM10.686,5.029 L8.212,5.029 C7.509,5.029 6.941,4.442 6.941,3.717 L6.941,1.810 C6.941,1.085 7.509,0.498 8.212,0.498 L10.686,0.498 C11.389,0.498 11.958,1.085 11.958,1.810 L11.958,3.717 C11.958,4.442 11.389,5.029 10.686,5.029 ZM3.788,11.502 L1.314,11.502 C0.611,11.502 0.042,10.915 0.042,10.190 L0.042,8.283 C0.042,7.558 0.611,6.971 1.314,6.971 L3.788,6.971 C4.491,6.971 5.059,7.558 5.059,8.283 L5.059,10.190 C5.059,10.915 4.491,11.502 3.788,11.502 ZM3.788,5.029 L1.314,5.029 C0.611,5.029 0.042,4.442 0.042,3.717 L0.042,1.810 C0.042,1.085 0.611,0.498 1.314,0.498 L3.788,0.498 C4.491,0.498 5.059,1.085 5.059,1.810 L5.059,3.717 C5.059,4.442 4.491,5.029 3.788,5.029 Z" />
                             </svg>
                         </button>
-                        <button class="filter-main__tag filter-main__tag-layout-item list">
+                        <button type="button" class="filter-main__tag filter-main__tag-layout-item list">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="14px" height="10px">
                                 <path fill-rule="evenodd" opacity="0.702" fill="rgb(61, 57, 53)"

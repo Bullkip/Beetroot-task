@@ -37,7 +37,7 @@
 						</ul>
 					</div>
 				<nav  class="header__navigation">
-					<button class="header__navigation-btn">
+					<button type="button" class="header__navigation-btn">
 						<div></div>
 						<div></div>
 						<div></div>
