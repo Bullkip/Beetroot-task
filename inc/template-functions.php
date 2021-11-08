@@ -34,6 +34,9 @@ function beetroot_test_task_pingback_header() {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
+
+
+// add cutom class name to menu items
 add_action( 'wp_head', 'beetroot_test_task_pingback_header' );
 
 add_filter( 'nav_menu_css_class', 'change_header_menu_css_classes', 10, 4 );
@@ -246,3 +249,20 @@ function show_all_tags ( $args ) {
 }
 
 add_filter( 'get_terms_args', 'show_all_tags' );
+
+// add option (socials) page
+add_action('acf/init', 'my_acf_op_init');
+function my_acf_op_init() {
+
+    if( function_exists('acf_add_options_page') ) {
+
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Socials Settings'),
+            'menu_title'    => __('Socials'),
+            'menu_slug'     => 'social-general-settings',
+			'position'      => 26,
+			'icon_url'      => 'dashicons-share',
+			'post_id'		=> 'socials'
+        ));
+    }
+}

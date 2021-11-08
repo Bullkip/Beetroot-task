@@ -77,9 +77,9 @@ get_header()
                                 }
                                 ?>
                             <li class='filter-main__dropdown-item'><label class="checkbox-toggle-label"><input
-                                        type='checkbox' class="filter-main__dropdown-checkbox--toggle"><span
-                                        class="toggle toggle-select ">Select all</span><span
-                                        class='toggle toggle-deselect'>Deselect all</span></label></li>
+                                        type='checkbox' class="filter-main__dropdown-checkbox--toggle">
+                                        <span class="toggle toggle-select ">Select all</span>
+                                        <span class="toggle toggle-deselect" >Deselect all</span></label></li>
                         </ul>
                         <ul class="filter-main__dropdown-list filter-main__dropdown-list--academy">
                             <span class="filter-main__dropdown-item--head ">Academies</span>
@@ -187,7 +187,7 @@ get_header()
                          ?>
                 </div>
             </div>
-          <?php get_template_part( 'template-parts/content-tag-icons'); ?>
+         
            
         </section>
     </div>

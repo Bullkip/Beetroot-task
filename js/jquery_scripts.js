@@ -1,5 +1,12 @@
 jQuery(function ($) {
-  // Isotope modify, for disable default grid layout
+  
+  let arrTags = [],
+    newArrTags,
+    qsRegex,
+    filterBtn = $(".filter-main__input-del"),
+    filterForm = $("#filter-input");  
+  
+// Isotope modify, for disable default grid layout
   Isotope.Item.prototype._create = function () {
     this.id = this.layout.itemGUID++;
     this._transn = {
@@ -23,9 +30,8 @@ jQuery(function ($) {
 
   Isotope.LayoutMode.create("none");
 
-  let arr = [],
-    newArr,
-    qsRegex;
+
+  //  Isotope grid init , and setup
 
   let $grid = $(".filter-main__items");
   $grid.isotope({
@@ -33,43 +39,44 @@ jQuery(function ($) {
     layoutMode: "none",
     filter: function () {
       let $this = $(this);
-      let searchResult = qsRegex ? $this.text().match(qsRegex) : true,
-        buttonResult = newArr ? $(this).is(newArr) : true;
+      (searchResult = qsRegex ? $this.text().match(qsRegex) : true),
+        (buttonResult = newArrTags ? $(this).is(newArrTags) : true);
 
       return searchResult && buttonResult;
     },
   });
 
+  // Configure array of tag if click on this
+
   $(".filter-main__tags").on("click", ".filter-main__tag-btn", function () {
     if ($(this).hasClass("is-checked")) {
       let filterValue = $(this).attr("data-filter");
-      indexElem = arr.indexOf(filterValue);
-      arr.splice(indexElem, 1);
+      indexElem = arrTags.indexOf(filterValue);
+      arrTags.splice(indexElem, 1);
       $(this).removeClass("is-checked");
     } else {
       let filterValue = $(this).attr("data-filter");
-      arr.push(filterValue);
+      arrTags.push(filterValue);
       $(this).addClass("is-checked");
     }
-    newArr = arr.join("");
+    newArrTags = arrTags.join("");
     $grid.isotope();
   });
 
-  let filterBtn = $(".filter-main__input-del");
-  let filterForm = $("#filter-input");
-
+ 
   // use value of search field to filter
   $("#filter-input").keyup(
     debounce(function () {
       qsRegex = new RegExp($("#filter-input").val(), "gi");
       filterBtn.addClass("filter-main__input-del--show");
-       if(qsRegex =='/(?:)/gi') {
-        filterBtn.removeClass("filter-main__input-del--show"); 
-       }
+      if (qsRegex == "/(?:)/gi") {
+        filterBtn.removeClass("filter-main__input-del--show");
+      }
       $grid.isotope();
     })
   );
 
+  // click x btn on search field and set value to default
   filterBtn.click(function () {
     filterBtn.removeClass("filter-main__input-del--show");
     qsRegex = $("#filter-input").val("");
@@ -91,13 +98,14 @@ jQuery(function ($) {
     };
   }
 
+  // setup ajax query to add posts , reinit isotope
 
   $("#filterform").change(function () {
-    let filter = $(this);
+    let filterForm = $(this);
 
     $.ajax({
       url: true_obj.ajaxurl,
-      data: filter.serialize(),
+      data: filterForm.serialize(),
       type: "POST",
       beforeSend: "",
       success: function (data) {
@@ -109,7 +117,7 @@ jQuery(function ($) {
         $grid.isotope({
           filter: function () {
             let searchResult = qsRegex ? $(this).text().match(qsRegex) : true;
-            buttonResult = newArr ? $(this).is(newArr) : true;
+            buttonResult = newArrTags ? $(this).is(newArrTags) : true;
             return searchResult && buttonResult;
           },
         });

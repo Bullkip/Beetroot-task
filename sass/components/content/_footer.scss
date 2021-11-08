@@ -1,42 +1,61 @@
 .footer {
-  padding: 100px 0 75px;
   position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: $color-footer-black;
+  padding: 100px 0 75px;
   z-index: 1;
+  background-color: $color-footer-black;
   &-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-flow: wrap;
   }
   &-navigation-menu {
     &__item {
       font-size: 1rem;
       line-height: 30px;
-      color: $color-text-light-grey;
       font-weight: 400;
+      color: $color-text-light-grey;
       &-head {
+        margin-bottom: 13px;
         font-size: 0.625rem;
         line-height: 15px;
         letter-spacing:1px;
-        color: $color-text-grey;
         font-weight: 400;
-        margin-bottom: 13px;
+        color: $color-text-grey;
       }
     }
   }
   &-menus {
-    flex-basis: 42%;
+    -ms-flex-preferred-size: 42%;
+        flex-basis: 42%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin-bottom: -7px;
     #footer-pages {
-      align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
     }
     ul:nth-child(2) {
       padding-left: 15px;
@@ -44,33 +63,44 @@
   }
 
   &-media {
-    flex-basis: 40%;
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     .footer-socials {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: row;
       margin-bottom: 66px;
       &__item {
         margin-right: 10px;
 
         a svg {
           :nth-child(1) {
-            transition: all 0.3s ease-in-out;
             -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -ms-transition: all 0.3s ease-in-out;
             -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+           
           }
           &:hover {
             :nth-child(1) {
               opacity: 0.5;
-              transition: all 0.3s ease-in-out;
               -webkit-transition: all 0.3s ease-in-out;
-              -moz-transition: all 0.3s ease-in-out;
-              -ms-transition: all 0.3s ease-in-out;
               -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+              
             }
           }
         }
@@ -78,92 +108,95 @@
     }
     .footer-subscribe {
       form.wpcf7-form {
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         .subscribe-form {
           position: relative;
           &__head {
-            color: $color-text-gold;
-            text-transform: uppercase;
-            font-size: 0.625rem;
-            letter-spacing: 0.95px;
             position: absolute;
             top: -89%;
             left: -0.5%;
+            font-size: 0.625rem;
+            letter-spacing: 0.95px;
+            text-transform: uppercase;
+            color: $color-text-gold;
           }
           &__wrap {
             position: relative;
             margin-bottom: 3px;
             &-button {
               content: "";
-
               position: absolute;
+              z-index: 10;
               width: 30px;
               height: 30px;
               top: 0%;
               right: 0%;
-              z-index: 10;
               cursor: pointer;
               &:before {
                 content: "";
-                background-image: url(assets/image/footer-subscription-arrow.svg);
                 position: absolute;
+                z-index: 3;
+                top: 28%;
+                right: 0%;
+                -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
                 width: 29px;
                 height: 5px;
-                -webkit-background-size: contain;
+                background-image: url(assets/image/footer-subscription-arrow.svg);
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
-                transform: translateY(-50%);
-                top: 28%;
-                right: 0%;
-                z-index: 3;
               }
             }
           }
           label {
-            color: #83807e;
-            font-size: 1.125rem;
-            letter-spacing: -0.3px;
             position: absolute;
             left: -0.5%;
             top: -11%;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out;
+            font-size: 1.125rem;
+            letter-spacing: -0.3px;
+            color: #83807e;
             &.form-focus {
               top: 100%;
+              -webkit-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
               transition: all 0.3s ease-in-out;
             }
           }
           input[type="submit"] {
             position: absolute;
+            z-index: -1;
             right: 0;
             top: 0;
             opacity: 0;
-            z-index: -1;
           }
           input[type="email"] {
-            width: 100%;
             position: relative;
-            color: $color-text-email-input;
-            background: transparent;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
             border: none;
             border-bottom: 1px solid $color-text-gold-light;
             border-radius: 0;
-            -webkit-border-radius: 0;
-            -moz-border-radius: 0;
-            -ms-border-radius: 0;
-            -o-border-radius: 0;
+            width: 100%;
+            background: transparent;
             font-size: 1.125rem;
-            transition: all 0.3s ease-in-out;
+            color: $color-text-email-input;
 
             &:focus {
+              -webkit-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+              border-bottom: 1px solid $color-text-gold;
               outline: none;
               color: $color-text-email-input;
-              border-bottom: 1px solid $color-text-gold;
-              transition: all 0.3s ease-in-out;
-              -webkit-transition: all 0.3s ease-in-out;
-              -moz-transition: all 0.3s ease-in-out;
-              -ms-transition: all 0.3s ease-in-out;
-              -o-transition: all 0.3s ease-in-out;
+            
             }
           }
           .wpcf7-spinner {
@@ -186,4 +219,28 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .footer-container.main-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .footer-media {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .footer-menus {
+    min-width: 80%;
+    padding-top: 10%;
+  }
+
+
 }
