@@ -193,8 +193,8 @@ get_header()
     </div>
     <section class="contact-us main-container">
         <div class="contact-us__wrap">
-            <h2 class="contact-us__title">Don’t see a role that fits?</h2>
-            <a href="#" class="contact-us__btn">Contact us</a>
+            <h2 class="contact-us__title"><?php the_field('contact_us_text'); ?></h2>
+            <a href="#" class="contact-us__btn"><?php the_field('contact_us_btn') ?></a>
         </div>
 
 
