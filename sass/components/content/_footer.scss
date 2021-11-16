@@ -161,7 +161,7 @@
             transition: all 0.3s ease-in-out;
             font-size: 1.125rem;
             letter-spacing: -0.3px;
-            color: #83807e;
+            color: $color-text-email-input;
             &.form-focus {
               top: 100%;
               -webkit-transition: all 0.3s ease-in-out;
@@ -212,7 +212,7 @@
           &.sent {
             .wpcf7-response-output {
               border: none;
-              color: green;
+              color: $color-text-green;
             }
           }
         }
