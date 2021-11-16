@@ -40,7 +40,7 @@
     </div>
     <div class="filter-main__item-footer">
         <a href="#" class="filter-main__item-arrow-link">
-            Details
+          <?=  _e('Details','mydomain'); ?> 
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29px"
                 height="6px">
                 <path fill-rule="evenodd" fill="rgb(188, 32, 75)"

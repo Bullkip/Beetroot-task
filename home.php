@@ -24,21 +24,21 @@ get_header()
 
                 </div>
                 <div class="filter-main__dropdown-wrap">
-                    <button type="button" class="filter-main__dropdown-btn dropdown-department-btn" data-title="All Departments">All
-                        departments</button>
+                    <button type="button" class="filter-main__dropdown-btn dropdown-department-btn" data-title="All Departments"><?=  _e('All
+                        departments','mydomain'); ?></button>
                     <div class="filter-main__dropdown-list-wrap dropdown-location-btn">
                         <ul class="filter-main__dropdown-list">
-                            <span class="filter-main__dropdown-item--head">Departments</span>
+                            <span class="filter-main__dropdown-item--head"><?=  _e('Departments','mydomain'); ?></span>
                             <?php 
                                 $args = [
-                                        'taxonomy'      => [ 'department' ], // название таксономии с WP 4.5
+                                        'taxonomy'      => [ 'department' ], 
                                         'orderby'       => 'id',
                                         'order'         => 'ASC',
                                         'hide_empty'    => false,
                                         'object_ids'    => null,
                                         'fields'        => 'all',
                                         'count'         => true,
-                                        'update_term_meta_cache' => true, // подгружать метаданные в кэш
+                                        'update_term_meta_cache' => true,
                                     ];
 
                                 $departments = get_terms( $args );
@@ -54,20 +54,20 @@ get_header()
 
                 </div>
                 <div class="filter-main__dropdown-wrap filter-main__dropdown-wrap--last">
-                    <button type="button" class="filter-main__dropdown-btn" data-title="All offices">All locations</button>
+                    <button type="button" class="filter-main__dropdown-btn" data-title="All offices"><?=  _e('All locations','mydomain'); ?></button>
                     <div class="filter-main__dropdown-list-wrap filter-main__dropdown--double-col">
                         <ul class="filter-main__dropdown-list">
-                            <span class="filter-main__dropdown-item--head">Offices</span>
+                            <span class="filter-main__dropdown-item--head"><?=  _e('Offices','mydomain'); ?></span>
                             <?php 
                                 $args_2 = [
-                                            'taxonomy'      => [ 'offices' ], // название таксономии с WP 4.5
+                                            'taxonomy'      => [ 'offices' ], 
                                             'orderby'       => 'id',
                                             'order'         => 'ASC',
                                             'hide_empty'    => false,
                                             'object_ids'    => null,
                                             'fields'        => 'all',
                                             'count'         => true,
-                                            'update_term_meta_cache' => true, // подгружать метаданные в кэш
+                                            'update_term_meta_cache' => true, 
                                         ];
 
                                 $offices = get_terms( $args_2 );
@@ -78,21 +78,21 @@ get_header()
                                 ?>
                             <li class='filter-main__dropdown-item'><label class="checkbox-toggle-label"><input
                                         type='checkbox' class="filter-main__dropdown-checkbox--toggle">
-                                        <span class="toggle toggle-select ">Select all</span>
-                                        <span class="toggle toggle-deselect" >Deselect all</span></label></li>
+                                        <span class="toggle toggle-select "><?=  _e('Select all','mydomain'); ?></span>
+                                        <span class="toggle toggle-deselect" ><?=  _e('Deselect all','mydomain'); ?></span></label></li>
                         </ul>
                         <ul class="filter-main__dropdown-list filter-main__dropdown-list--academy">
-                            <span class="filter-main__dropdown-item--head ">Academies</span>
+                            <span class="filter-main__dropdown-item--head "><?=  _e('Academies','mydomain'); ?></span>
                             <?php 
                                 $args_3 = [
-                                            'taxonomy'      => [ 'academies' ], // название таксономии с WP 4.5
+                                            'taxonomy'      => [ 'academies' ], 
                                             'orderby'       => 'id',
                                             'order'         => 'ASC',
                                             'hide_empty'    => false,
                                             'object_ids'    => null,
                                             'fields'        => 'all',
                                             'count'         => true,
-                                            'update_term_meta_cache' => true, // подгружать метаданные в кэш
+                                            'update_term_meta_cache' => true, 
                                         ];
 
                                 $academies = get_terms( $args_3 );
@@ -103,27 +103,26 @@ get_header()
                                 ?>
                             <li class='filter-main__dropdown-item'><label class="checkbox-toggle-label"><input
                                         type='checkbox' class="filter-main__dropdown-checkbox--toggle"><span
-                                        class="toggle toggle-select ">Select all</span><span
-                                        class='toggle toggle-deselect'>Deselect all</span></label></li>
+                                        class="toggle toggle-select "><?=  _e('Select all','mydomain'); ?></span><span
+                                        class='toggle toggle-deselect'><?=  _e('Deselect all','mydomain'); ?></span></label></li>
                         </ul>
                     </div>
                 </div>
                 <button type="submit" id="filter-btn"></button>
                 <input type="hidden" name="action" value="myfilter">
             </form>
-            <!-- </div> -->
             <div class="filter-main__posts">
                 <div class="filter-main__tags">
                     <?php 
                                 $args_4 = [
-                                        'taxonomy'      => [ 'tags' ], // название таксономии с WP 4.5
+                                        'taxonomy'      => [ 'tags' ], 
                                         'orderby'       => 'id',
                                         'order'         => 'ASC',
                                         'hide_empty'    => false,
                                         'object_ids'    => null,
                                         'fields'        => 'all',
                                         'count'         => true,
-                                        'update_term_meta_cache' => true, // подгружать метаданные в кэш
+                                        'update_term_meta_cache' => true, 
                                     ];
 
                                 $tags = get_terms( $args_4 );
@@ -132,7 +131,7 @@ get_header()
                                     echo "<button type='button' class='filter-main__tag filter-main__tag-btn' data-filter='.{$tag->slug}'> {$tag->name}<span>{$tag->count}</span></button>";
                                 }
                             ?>
-                    <button type="button" class="filter-main__tag  more">more</button>
+                    <button type="button" class="filter-main__tag  more"><?=  _e('more','mydomain'); ?></button>
                    
                     <div class="filter-main__tag-layout-mode">
                         <button type="button"
@@ -155,12 +154,12 @@ get_header()
                 </div>
                 <div class="filter-main__items  ">
                     <div class=" filter-main__head-items">
-                        <span class="left-col"><i></i>Openings</span>
+                        <span class="left-col"><i></i><?=  _e('Openings','mydomain'); ?></span>
                         <div class="right-col">
-                            <span class="department">Department</span>
-                            <span class="location">Location</span>
-                            <span class="tags">Tags</span>
-                            <span class="client">Client</span>
+                            <span class="department"><?=  _e('Department','mydomain'); ?></span>
+                            <span class="location"><?=  _e('Location','mydomain'); ?></span>
+                            <span class="tags"><?=  _e('Tags','mydomain'); ?></span>
+                            <span class="client"><?=  _e('Client','mydomain'); ?></span>
                         </div>
                     </div>
                     <?
@@ -174,7 +173,7 @@ get_header()
                             'exclude'     => array(),
                             
                             'post_type'   => 'vacancy',
-                            'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                            'suppress_filters' => true, 
                         ) );
 
                         foreach( $posts as $post ){
@@ -183,7 +182,7 @@ get_header()
                             
                     }
 
-                        wp_reset_postdata(); // сброс
+                        wp_reset_postdata(); 
                          ?>
                 </div>
             </div>
