@@ -2091,11 +2091,11 @@ main {
 	display: -ms-flexbox;
 	display: flex;
 	overflow: hidden;
-	-webkit-transition: -webkit-box-shadow, -webkit-transition 0.4s ease-in-out;
+	-webkit-transition: -webkit-box-shadow, -webkit-transition 0.4s ease-in-out;
 	transition: -webkit-box-shadow, -webkit-transition 0.4s ease-in-out;
 	-o-transition: box-shadow, -o-transition 0.4s ease-in-out;
 	transition: box-shadow, transition 0.4s ease-in-out;
-	transition: box-shadow, transition 0.4s ease-in-out, -webkit-box-shadow, -webkit-transition 0.4s ease-in-out, -o-transition 0.4s ease-in-out;
+	transition: box-shadow, transition 0.4s ease-in-out, -webkit-box-shadow, -webkit-transition 0.4s ease-in-out, -o-transition 0.4s ease-in-out;
 	border-radius: 20px;
 	padding: 24px;
 	background-color: #fff;

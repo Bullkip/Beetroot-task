@@ -208,18 +208,16 @@ function filter(){
 			$args = array(
 		'posts_per_page' => -1,
 		'post_type'   => 'vacancy',
-		'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-		'order'	=> 'DESC', // ASC или DESC
+		'orderby' => 'date', 
+		'order'	=> 'DESC', 
 		'tax_query' => $tax_query,
 
 	);
 
 	
-
-	// Цикл
 	global $post;
 
-	// $myposts = get_posts( $args );
+	
 
 	$query = new WP_Query;
     $myposts = $query->query($args);
@@ -265,4 +263,24 @@ function my_acf_op_init() {
 			'post_id'		=> 'socials'
         ));
     }
+
+
+}
+// add option (footer) page
+add_action('acf/init', 'my_footer_op_init');
+function my_footer_op_init() {
+
+    if( function_exists('acf_add_options_page') ) {
+
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Footer'),
+            'menu_title'    => __('Footer'),
+            'menu_slug'     => 'footer-settings',
+			'position'      => 27,
+			'icon_url'      => 'dashicons-table-row-after',
+			'post_id'		=> 'footer'
+        ));
+    }
+
+
 }

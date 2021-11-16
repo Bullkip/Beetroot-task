@@ -79,7 +79,7 @@
 
             </ul>
             <div class="footer-subscribe">
-                <?php echo do_shortcode( '[contact-form-7 id="34" title="Subscribe form"]' ) ?>
+                <?php echo do_shortcode( get_field('footer-form','footer') ) ?>
             </div>
         </div>
     </div>
