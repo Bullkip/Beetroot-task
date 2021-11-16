@@ -57,20 +57,47 @@
         <div class="footer-media">
             <ul class="footer-socials">
                 
+        
                 <?php 
 
-                        while( have_rows('social_menu','socials') ): the_row(); 
+                        while( have_rows('social_network','socials') ): the_row(); 
 
                         $link = get_sub_field('link');
 		                $name = get_sub_field('name');
+		                $icon = get_sub_field('icon');
+		                $custom_name = get_sub_field('custom_name');
+		                $icon_type = get_sub_field('icon_type');
+		                $icon_item = get_sub_field('icon_galery');
+		                $icon_url = get_sub_field('icon_url');
 
-                                echo '<li class="footer-socials__item">
+
+							if ($icon == 'library') {
+								echo '<li class="footer-socials__item '.$name.'">
                                         <a href="'.$link.'">
                                             <svg width="46px" height="45px">
                                                 <use href="#'.$name.'"></use>
                                             </svg>
                                         </a>
-                                    </li>"';
+                                    </li>';
+							} else {
+								if ($icon_type == 'galery') {
+									echo '<li class="footer-socials__item footer-socials__item--custom">
+                                        <a href="'.$link.'">
+										<img src="'.$icon_item.'" alt="'.$custom_name.'">
+                                        </a>
+                                    </li>';
+								} else {
+									echo '<li class="footer-socials__item footer-socials__item--custom">
+                                        <a href="'.$link.'">
+										<img src="'.$icon_url.'" alt="'.$custom_name.'">
+                                        </a>
+                                    </li>';
+								}
+								
+
+							}
+
+                                
 
                         endwhile;     
                             

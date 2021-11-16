@@ -17,8 +17,7 @@
 
                              ?>
 
-<article class="filter-main__item <? echo " $direction_check $tags_list_string" ?>">
-
+<article class="filter-main__item <? echo " $direction_check $tags_list_string" ?>"  data-tags="<? echo " $tags_list_string" ?>">
     <div class="filter-main__item-head ">
         <h3 class="filter-main__item-caption">
             <? the_title() ?>
@@ -90,8 +89,11 @@
         <div class="filter-main__item-logo--footer">
             <?
                                  $company_logo = get_field('company_logo');
+                                 if ($company_logo) {
                                     $result_logo = $company_logo ? "<img src='{$company_logo}' alt='' class='filter-main__item-logo'>" : "";
-                                     echo $result_logo 
+                                     echo $result_logo;
+                                 }
+                                    
                                      ?>
         </div>
     </div>

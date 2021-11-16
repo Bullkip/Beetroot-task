@@ -38,11 +38,14 @@ jQuery(function ($) {
     itemSelector: ".filter-main__item",
     layoutMode: "none",
     filter: function () {
-      let $this = $(this);
-      (searchResult = qsRegex ? $this.text().match(qsRegex) : true),
-        (buttonResult = newArrTags ? $(this).is(newArrTags) : true);
+
+      let $this = $(this),
+        searchResult = qsRegex ? $this.text().match(qsRegex) : true,
+        buttonResult = newArrTags ? $(this).is(newArrTags) : true;
 
       return searchResult && buttonResult;
+
+      return searchResult
     },
   });
 
@@ -59,6 +62,7 @@ jQuery(function ($) {
       arrTags.push(filterValue);
       $(this).addClass("is-checked");
     }
+    console.log(arrTags);
     newArrTags = arrTags.join("");
     $grid.isotope();
   });
