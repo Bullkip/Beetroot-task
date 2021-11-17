@@ -501,13 +501,13 @@ main {
           -webkit-transition: position 0.1s ease;
           -o-transition: position 0.1s ease;
           transition: position 0.1s ease;
-          ~ .more {
+          ~ .tag-more {
             -webkit-transition: all 0.3s ease-in;
             -o-transition: all 0.3s ease-in;
             transition: all 0.3s ease-in;
           }
         }
-        ~ .more {
+        ~ .tag-more {
           &:hover {
             color: $color-white-text;
           }

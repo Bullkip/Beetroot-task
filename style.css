@@ -1873,20 +1873,20 @@ main {
 	transition: position 0.1s ease;
 }
 
-.filter__posts .filter__tag.tag-hide ~ .more {
+.filter__posts .filter__tag.tag-hide ~ .tag-more {
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 }
 
-.filter__posts .filter__tag ~ .more {
+.filter__posts .filter__tag ~ .tag-more {
 	-webkit-transition: all 0.3s ease-in;
 	-o-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 	color: #3d393599;
 }
 
-.filter__posts .filter__tag ~ .more:hover {
+.filter__posts .filter__tag ~ .tag-more:hover {
 	color: #fff;
 }
 

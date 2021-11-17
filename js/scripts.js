@@ -153,7 +153,7 @@ function triggerEvent(element, eventName) {
 // more , less collapse
 
 let tags = document.querySelectorAll(".filter__tag-btn");
-moreBtn = document.querySelector(".filter__tag.more");
+moreBtn = document.querySelector(".filter__tag.tag-more");
 
 for (let i = 0; i < tags.length; i++) {
   if (i > 10) {
