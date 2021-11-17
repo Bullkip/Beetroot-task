@@ -1976,21 +1976,21 @@ main {
 	display: flex;
 }
 
-.filter__posts .filter__items--row .filter__head-items .right-col .department {
+.filter__posts .filter__items--row .filter__head-items .right-col .col-department {
 	-ms-flex-preferred-size: 15%;
 	flex-basis: 15%;
 }
 
-.filter__posts .filter__items--row .filter__head-items .right-col .location {
+.filter__posts .filter__items--row .filter__head-items .right-col .col-location {
 	-ms-flex-preferred-size: 25%;
 	flex-basis: 25%;
 }
 
-.filter__posts .filter__items--row .filter__head-items .right-col .tags {
+.filter__posts .filter__items--row .filter__head-items .right-col .col-tags {
 	margin: 0 0 0 35px;
 }
 
-.filter__posts .filter__items--row .filter__head-items .client {
+.filter__posts .filter__items--row .filter__head-items .col-client {
 	-ms-flex-preferred-size: 15%;
 	flex-basis: 15%;
 	margin-left: auto;

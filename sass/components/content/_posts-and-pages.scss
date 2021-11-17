@@ -587,22 +587,22 @@ main {
               display: -ms-flexbox;
               display: flex;
 
-              .department {
+              .col-department {
                 -ms-flex-preferred-size: 15%;
                 flex-basis: 15%;
               }
 
-              .location {
+              .col-location {
                 -ms-flex-preferred-size: 25%;
                 flex-basis: 25%;
               }
 
-              .tags {
+              .col-tags {
                 margin: 0 0 0 35px;
               }
             }
 
-            .client {
+            .col-client {
               -ms-flex-preferred-size: 15%;
               flex-basis: 15%;
               margin-left: auto;

@@ -142,7 +142,7 @@ get_header()
                                     echo "<button type='button' class='filter__tag filter__tag-btn' data-filter='.{$tag->slug}'> {$tag->name}<span>{$tag->count}</span></button>";
                                 }
                             ?>
-                    <button type="button" class="filter__tag  more"><?=  _e('more','mydomain'); ?></button>
+                    <button type="button" class="filter__tag tag-more"><?=  _e('more','mydomain'); ?></button>
 
                     <div class="filter__tag-layout-mode">
                         <button type="button"
@@ -167,10 +167,10 @@ get_header()
                     <div class=" filter__head-items">
                         <span class="left-col"><i></i><?=  _e('Openings','mydomain'); ?></span>
                         <div class="right-col">
-                            <span class="department"><?=  _e('Department','mydomain'); ?></span>
-                            <span class="location"><?=  _e('Location','mydomain'); ?></span>
-                            <span class="tags"><?=  _e('Tags','mydomain'); ?></span>
-                            <span class="client"><?=  _e('Client','mydomain'); ?></span>
+                            <span class="col-department"><?=  _e('Department','mydomain'); ?></span>
+                            <span class="col-location"><?=  _e('Location','mydomain'); ?></span>
+                            <span class="col-tags"><?=  _e('Tags','mydomain'); ?></span>
+                            <span class="col-client"><?=  _e('Client','mydomain'); ?></span>
                         </div>
                     </div>
                     <?
