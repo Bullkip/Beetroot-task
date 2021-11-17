@@ -62,7 +62,6 @@ jQuery(function ($) {
       arrTags.push(filterValue);
       $(this).addClass("is-checked");
     }
-    console.log(arrTags);
     newArrTags = arrTags.join("");
     $grid.isotope();
   });
