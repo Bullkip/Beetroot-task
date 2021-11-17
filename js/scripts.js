@@ -42,20 +42,6 @@ customFormBtnSubmit.addEventListener("click", () => {
 let footerHeight = document.querySelector('footer').offsetHeight,
     mainMarginBoottom = document.querySelector("main").style.marginBottom = `${footerHeight}px`;
 
-//set input filter value to 0 , when x btn clicked
-
-// let filterBtn = document.querySelector(".filter-main__input-del");
-// let filterForm = document.querySelector("#filter-input");
-
-// filterBtn.addEventListener("click", () => {
-//   filterForm.value = "";
-//   filterBtn.classList.remove("filter-main__input-del--show");
-// });
-
-// filterForm.addEventListener("input", () => {
-//   filterBtn.classList.add("filter-main__input-del--show");
-// });
-
 // custom multiselect
 let arrCheckboxes = [];
 arrCheckboxes_2 = [];
@@ -202,28 +188,6 @@ Isotope.prototype.arrange = function (opts) {
 
 Isotope.LayoutMode.create("none");
 
-// // isotope filter by tags, custom categories
-
-// let iso = new Isotope(".filter-main__items", {
-//   itemSelector: ".filter-main__item",
-//   layoutMode: "none",
-
-// });
-
-// // let masonryElems = document.querySelectorAll(".filter-main__item");
-
-// // bind filter button click
-// let filtersElem = document.querySelector(".filter-main__tags");
-// filtersElem.addEventListener("click", function (event) {
-//   console.log(event.target)
-//   // only work with buttons
-//   if (!matchesSelector(event.target, "button")) {
-//     return;
-//   }
-//   let filterValue = event.target.getAttribute("data-filter");
-
-//   iso.arrange({ filter: filterValue });
-// });
 
 // layout post tabs
 let layoutBtns = document.querySelectorAll(
