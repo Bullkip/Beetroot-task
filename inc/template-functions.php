@@ -179,18 +179,45 @@ function filter(){
 			}
 	}
 
+
+
+	
+    // // for search title post 
+	// if (isset($_POST[filter-input])) {
+	// 	$args = array(
+    //         'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+    //         'tax_query' => $tax_query,
+    //         's' => $_GET['filter-input'],
+    //     );
+
+	// } else {
+		
+	// 		$args = array(
+	// 	'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+	// 	'tax_query' => $tax_query,
+
+	// );
+	// }
+
 			$args = array(
 		'posts_per_page' => -1,
 		'post_type'   => 'vacancy',
-		'orderby' => 'date',
+		'orderby' => 'date', 
 		'order'	=> 'DESC', 
 		'tax_query' => $tax_query,
 
 	);
 
+	
 	global $post;
 
-	// $myposts = get_posts( $args );
+	
 
 	$query = new WP_Query;
     $myposts = $query->query($args);
@@ -236,51 +263,24 @@ function my_acf_op_init() {
 			'post_id'		=> 'socials'
         ));
     }
-}
 
-// add svg upload type
-add_filter( 'upload_mimes', 'svg_upload_allow' );
-
-function svg_upload_allow( $mimes ) {
-	$mimes['svg']  = 'image/svg+xml';
-
-	return $mimes;
 
 }
-// add svg mime type
+// add option (footer) page
+add_action('acf/init', 'my_footer_op_init');
+function my_footer_op_init() {
 
-add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
+    if( function_exists('acf_add_options_page') ) {
 
-function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Footer'),
+            'menu_title'    => __('Footer'),
+            'menu_slug'     => 'footer-settings',
+			'position'      => 27,
+			'icon_url'      => 'dashicons-table-row-after',
+			'post_id'		=> 'footer'
+        ));
+    }
 
-	if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) )
-		$dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
-	else
-		$dosvg = ( '.svg' === strtolower( substr($filename, -4) ) );
-	if( $dosvg ){
-		if( current_user_can('manage_options') ){
 
-			$data['ext']  = 'svg';
-			$data['type'] = 'image/svg+xml';
-		}
-		else {
-			$data['ext'] = $type_and_ext['type'] = false;
-		}
-
-	}
-
-	return $data;
-}
-
-// view svg in media library
-
-add_filter( 'wp_prepare_attachment_for_js', 'show_svg_in_media_library' );
-
-function show_svg_in_media_library( $response ) {
-	if ( $response['mime'] === 'image/svg+xml' ) {
-		$response['image'] = [
-			'src' => $response['url'],
-		];
-	}
-	return $response;
 }
