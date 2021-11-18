@@ -1127,6 +1127,42 @@ textarea {
 	transition: all 0.3s ease-in-out;
 }
 
+.footer-media .footer-socials__item.footer-socials__item--custom {
+	position: relative;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	background-color: #787572;
+}
+
+.footer-media .footer-socials__item.footer-socials__item--custom a {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.footer-media .footer-socials__item.footer-socials__item--custom img {
+	-webkit-filter: invert(50%) sepia(10%) saturate(331%) hue-rotate(349deg) brightness(32%) contrast(80%);
+	filter: invert(50%) sepia(10%) saturate(331%) hue-rotate(349deg) brightness(32%) contrast(80%);
+	width: 22px;
+	height: 22px;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.footer-media .footer-socials__item.footer-socials__item--custom:hover {
+	opacity: 0.5;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
 .footer-media .footer-subscribe form.wpcf7-form {
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
