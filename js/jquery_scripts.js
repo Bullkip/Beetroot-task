@@ -3,7 +3,7 @@ jQuery(function ($) {
   let arrTags = [],
     newArrTags,
     qsRegex,
-    filterBtn = $(".filter-main__input-del"),
+    filterBtn = $(".filter__input-del"),
     filterForm = $("#filter-input");  
   
 // Isotope modify, for disable default grid layout
@@ -33,22 +33,25 @@ jQuery(function ($) {
 
   //  Isotope grid init , and setup
 
-  let $grid = $(".filter-main__items");
+  let $grid = $(".filter__items");
   $grid.isotope({
-    itemSelector: ".filter-main__item",
+    itemSelector: ".filter__item",
     layoutMode: "none",
     filter: function () {
-      let $this = $(this);
-      (searchResult = qsRegex ? $this.text().match(qsRegex) : true),
-        (buttonResult = newArrTags ? $(this).is(newArrTags) : true);
+
+      let $this = $(this),
+        searchResult = qsRegex ? $this.text().match(qsRegex) : true,
+        buttonResult = newArrTags ? $(this).is(newArrTags) : true;
 
       return searchResult && buttonResult;
+
+      return searchResult
     },
   });
 
   // Configure array of tag if click on this
 
-  $(".filter-main__tags").on("click", ".filter-main__tag-btn", function () {
+  $(".filter__tags").on("click", ".filter__tag-btn", function () {
     if ($(this).hasClass("is-checked")) {
       let filterValue = $(this).attr("data-filter");
       indexElem = arrTags.indexOf(filterValue);
@@ -68,9 +71,9 @@ jQuery(function ($) {
   $("#filter-input").keyup(
     debounce(function () {
       qsRegex = new RegExp($("#filter-input").val(), "gi");
-      filterBtn.addClass("filter-main__input-del--show");
+      filterBtn.addClass("filter__input-del--show");
       if (qsRegex == "/(?:)/gi") {
-        filterBtn.removeClass("filter-main__input-del--show");
+        filterBtn.removeClass("filter__input-del--show");
       }
       $grid.isotope();
     })
@@ -78,7 +81,7 @@ jQuery(function ($) {
 
   // click x btn on search field and set value to default
   filterBtn.click(function () {
-    filterBtn.removeClass("filter-main__input-del--show");
+    filterBtn.removeClass("filter__input-del--show");
     qsRegex = $("#filter-input").val("");
     $grid.isotope();
   });
@@ -110,7 +113,7 @@ jQuery(function ($) {
       beforeSend: "",
       success: function (data) {
         console.log(data);
-        $(".filter-main__items").html(data);
+        $(".filter__items").html(data);
         // reload isotope items to display it
         $grid.isotope("reloadItems");
         // set filter parametrs before reload isotope items

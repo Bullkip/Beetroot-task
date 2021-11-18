@@ -44,28 +44,28 @@ let footerHeight = document.querySelector('footer').offsetHeight,
 
 //set input filter value to 0 , when x btn clicked
 
-// let filterBtn = document.querySelector(".filter-main__input-del");
+// let filterBtn = document.querySelector(".filter__input-del");
 // let filterForm = document.querySelector("#filter-input");
 
 // filterBtn.addEventListener("click", () => {
 //   filterForm.value = "";
-//   filterBtn.classList.remove("filter-main__input-del--show");
+//   filterBtn.classList.remove("filter__input-del--show");
 // });
 
 // filterForm.addEventListener("input", () => {
-//   filterBtn.classList.add("filter-main__input-del--show");
+//   filterBtn.classList.add("filter__input-del--show");
 // });
 
 // custom multiselect
 let arrCheckboxes = [];
 arrCheckboxes_2 = [];
 flag = "";
-dropdownsCheckboxes = document.querySelectorAll(".filter-main__dropdown-checkbox");
+dropdownsCheckboxes = document.querySelectorAll(".filter__dropdown-checkbox");
 
 for (let i = 0; i < dropdownsCheckboxes.length; i++) {
   dropdownsCheckboxes[i].addEventListener("change", (e) => {
-    let parentElem = e.target.closest(".filter-main__dropdown-wrap");
-    btnElem = parentElem.querySelector(".filter-main__dropdown-btn");
+    let parentElem = e.target.closest(".filter__wrap--dropdown");
+    btnElem = parentElem.querySelector(".dropdown__btn");
     btnElemDefaultValue = btnElem.getAttribute("data-title");
     console.log(parentElem, btnElem, btnElemDefaultValue);
 
@@ -114,15 +114,15 @@ for (let i = 0; i < dropdownsCheckboxes.length; i++) {
 // check - uncheck all checkboxes
 
 let tooggleBtns = document.querySelectorAll(
-  ".filter-main__dropdown-checkbox--toggle"
+  ".filter__dropdown-checkbox--toggle"
 );
 for (let i = 0; i < tooggleBtns.length; i++) {
   const toggleBtn = tooggleBtns[i];
 
   toggleBtn.addEventListener("click", () => {
-    let parentCheckboxes = toggleBtn.closest(".filter-main__dropdown-list");
+    let parentCheckboxes = toggleBtn.closest(".filter__dropdown-list");
     currentCheckboxes = parentCheckboxes.querySelectorAll(
-      ".filter-main__dropdown-checkbox"
+      ".filter__dropdown-checkbox"
     );
 
     if (!toggleBtn.checked) {
@@ -152,8 +152,8 @@ function triggerEvent(element, eventName) {
 
 // more , less collapse
 
-let tags = document.querySelectorAll(".filter-main__tag-btn");
-moreBtn = document.querySelector(".filter-main__tag.more");
+let tags = document.querySelectorAll(".filter__tag-btn");
+moreBtn = document.querySelector(".tag-more");
 
 for (let i = 0; i < tags.length; i++) {
   if (i > 10) {
@@ -204,16 +204,16 @@ Isotope.LayoutMode.create("none");
 
 // // isotope filter by tags, custom categories
 
-// let iso = new Isotope(".filter-main__items", {
-//   itemSelector: ".filter-main__item",
+// let iso = new Isotope(".filter__items", {
+//   itemSelector: ".filter__item",
 //   layoutMode: "none",
 
 // });
 
-// // let masonryElems = document.querySelectorAll(".filter-main__item");
+// // let masonryElems = document.querySelectorAll(".filter__item");
 
 // // bind filter button click
-// let filtersElem = document.querySelector(".filter-main__tags");
+// let filtersElem = document.querySelector(".filter__tags");
 // filtersElem.addEventListener("click", function (event) {
 //   console.log(event.target)
 //   // only work with buttons
@@ -227,9 +227,9 @@ Isotope.LayoutMode.create("none");
 
 // layout post tabs
 let layoutBtns = document.querySelectorAll(
-  "button.filter-main__tag-layout-item"
+  "button.filter__tag-layout-item"
 );
-postsParent = document.querySelector(".filter-main__items");
+postsParent = document.querySelector(".filter__items");
 
 let setIndex = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -242,18 +242,18 @@ for (let i = 0; i < layoutBtns.length; i++) {
   setIndex(layoutBtns);
 
   layoutBtn.addEventListener("click", () => {
-    if (!layoutBtn.classList.contains("filter-main__tag-layout-item--active")) {
-      layoutBtn.classList.add("filter-main__tag-layout-item--active");
+    if (!layoutBtn.classList.contains("filter__tag-layout-item--active")) {
+      layoutBtn.classList.add("filter__tag-layout-item--active");
     }
     let elemIndex = layoutBtn.getAttribute("data-index");
     newArr = [...layoutBtns];
     newArr.splice(elemIndex, 1);
-    newArr[0].classList.remove("filter-main__tag-layout-item--active");
+    newArr[0].classList.remove("filter__tag-layout-item--active");
 
     if (layoutBtn.classList.contains('list')) {
-      postsParent.classList.toggle("filter-main__items--row");
+      postsParent.classList.toggle("filter__items--row");
     } else {
-      postsParent.classList.toggle("filter-main__items--row"); 
+      postsParent.classList.toggle("filter__items--row"); 
     }
   });
 }

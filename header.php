@@ -30,10 +30,10 @@
 					<?php
 					the_custom_logo();?>
 					<div class="header__lang-widget">
-						<a href="#" class="header__lang-toggle" ><span data-toggle="true">Eng</span></a>
+						<a href="#" class="header__lang-toggle" ><span data-toggle="true"><?= _e('Eng','mydomain'); ?></span></a>
 						<ul class="header__lang-submenu">
-							<li class="header__lang-submenu-item"><a data-toggle href="#">Укр</a></li>
-							<li class="header__lang-submenu-item"><a data-toggle href="#">Рус</a></li>
+							<li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Укр','mydomain'); ?></a></li>
+							<li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Рус','mydomain'); ?></a></li>
 						</ul>
 					</div>
 				<nav  class="header__navigation">
