@@ -39,7 +39,7 @@
       padding: 8px 20px;
       font-size: 0.9375rem;
       font-weight: 300;
-      color: #3d3935;
+      color: $color-footer-black;
 
       &.header__lang-toggle {
         padding-right: calc(10px + 1.23em);
@@ -126,8 +126,8 @@
       -webkit-transition: all 0.3s ease-in;
       -o-transition: all 0.3s ease-in;
       transition: all 0.3s ease-in;
-      border-left: 1px solid #8b8886;
-      border-top: 1px solid #8b8886;
+      border-left: 1px solid $color-header-border;
+      border-top: 1px solid $color-header-border;
       width: 8px;
       height: 8px;
     }
@@ -151,7 +151,7 @@
         transition: all 0.4s;
         height: 1px;
         width: 22px;
-        background-color: #fff;
+        background-color: $color-white;
       }
       :nth-child(1) {
         top: 35%;
@@ -199,7 +199,7 @@
       }
       &__item {
         margin-right: 20px;
-        color: #3d3935;
+        color: $color-footer-black;
         &.header__navigation-menu__item--border {
           margin-right: 0;
           a {

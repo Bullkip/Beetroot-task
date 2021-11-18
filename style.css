@@ -830,7 +830,7 @@ textarea {
 	transition: all 0.4s;
 	height: 1px;
 	width: 22px;
-	background-color: #fff;
+	background-color: #ffffff;
 }
 
 .header__navigation-btn :nth-child(1) {
@@ -1272,7 +1272,7 @@ textarea {
 
 .footer-media .footer-subscribe .wpcf7 form.sent .wpcf7-response-output {
 	border: none;
-	color: green;
+	color: #7bceb1;
 }
 
 @media only screen and (max-width: 600px) {
@@ -1691,7 +1691,7 @@ main {
 	border-radius: 30px;
 	min-width: 100%;
 	padding: 30px;
-	background-color: #fff;
+	background-color: #ffffff;
 }
 
 .filter-main__dropdown-list {

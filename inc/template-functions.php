@@ -179,44 +179,15 @@ function filter(){
 			}
 	}
 
-
-
-	
-    // // for search title post 
-	// if (isset($_POST[filter-input])) {
-	// 	$args = array(
-    //         'posts_per_page' => -1,
-	// 	'post_type'   => 'vacancy',
-	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-	// 	'order'	=> 'DESC', // ASC или DESC
-    //         'tax_query' => $tax_query,
-    //         's' => $_GET['filter-input'],
-    //     );
-
-	// } else {
-		
-	// 		$args = array(
-	// 	'posts_per_page' => -1,
-	// 	'post_type'   => 'vacancy',
-	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-	// 	'order'	=> 'DESC', // ASC или DESC
-	// 	'tax_query' => $tax_query,
-
-	// );
-	// }
-
 			$args = array(
 		'posts_per_page' => -1,
 		'post_type'   => 'vacancy',
-		'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-		'order'	=> 'DESC', // ASC или DESC
+		'orderby' => 'date',
+		'order'	=> 'DESC', 
 		'tax_query' => $tax_query,
 
 	);
 
-	
-
-	// Цикл
 	global $post;
 
 	// $myposts = get_posts( $args );
