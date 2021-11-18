@@ -18,7 +18,6 @@
                              ?>
 
 <article class="filter__item <? echo " $direction_check $tags_list_string" ?>">
-
     <div class="filter__item-head ">
         <h3 class="filter__item-caption">
             <? the_title() ?>
@@ -92,6 +91,7 @@
                                  $company_logo = get_field('company_logo');
                                     $result_logo = $company_logo ? "<img src='{$company_logo}' alt='' class='filter__item-logo'>" : "";
                                      echo $result_logo 
+
                                      ?>
         </div>
     </div>
