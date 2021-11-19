@@ -84,7 +84,7 @@ main {
       opacity: 0;
       visibility: hidden;
     }
-     &--input {
+    &--input {
       position: relative;
       -ms-flex-preferred-size: 58%;
       flex-basis: 58%;
@@ -103,7 +103,7 @@ main {
         background-size: contain;
       }
     }
-     &--dropdown {
+    &--dropdown {
       position: relative;
       -ms-flex-preferred-size: 27.4%;
       flex-basis: 27.4%;
@@ -211,31 +211,30 @@ main {
       border-color: $color-text-title;
     }
     &-del {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background-image: url(assets/image/cross.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    &--show {
-      opacity: 1;
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      opacity: 0;
       -webkit-transition: all 0.3s ease-in;
       -o-transition: all 0.3s ease-in;
       transition: all 0.3s ease-in;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-image: url(assets/image/cross.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      &--show {
+        opacity: 1;
+        -webkit-transition: all 0.3s ease-in;
+        -o-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+      }
     }
   }
-  }
-  
 
   .dropdown {
     &__btn {
@@ -276,8 +275,8 @@ main {
         height: 8px;
       }
     }
-    &__wrapper{
-          position: absolute;
+    &__wrapper {
+      position: absolute;
       z-index: 50;
       top: calc(100% + 10px);
       right: 0;
@@ -296,37 +295,35 @@ main {
       padding: 30px;
       background-color: $color-white;
       &--double {
-      .dropdown__content {
-         min-width: 190px;
+        .dropdown__content {
+          min-width: 190px;
+        }
+        :nth-child(1).dropdown__content {
+          margin-right: 30px;
+        }
       }
-      :nth-child(1).dropdown__content {
-        margin-right: 30px;
-      }
-    }
     }
     &__content {
-     width: 100%;
-     &--academy {
-          .dropdown__item--head {
-            color: $color-text-green;
-          }
-          .dropdown__item label:not(.checkbox-toggle-label):before {
-            border-color: $color-text-green;
-          }
-          .dropdown__item label:hover:before {
-            background-color: $color-text-green;
-          }
-          .dropdown__item
-            .dropdown__checkbox:checked
-            + label:before {
-            background-color: $color-text-green;
-          }
+      width: 100%;
+      &--academy {
+        .dropdown__item--head {
+          color: $color-text-green;
         }
+        .dropdown__item label:not(.checkbox-toggle-label):before {
+          border-color: $color-text-green;
+        }
+        .dropdown__item label:hover:before {
+          background-color: $color-text-green;
+        }
+        .dropdown__item .dropdown__checkbox:checked + label:before {
+          background-color: $color-text-green;
+        }
+      }
     }
-      &__items {
+    &__items {
       width: 100%;
     }
-        &__item {
+    &__item {
       font-size: 1.0625rem;
       font-weight: 300;
 
@@ -603,8 +600,8 @@ main {
             }
 
             .col-client {
-              -ms-flex-preferred-size: 15%;
-              flex-basis: 15%;
+              -ms-flex-preferred-size: 19%;
+              flex-basis: 19%;
               margin-left: auto;
             }
 
@@ -670,8 +667,18 @@ main {
               display: block;
             }
             &-logo--footer {
-              display: block;
+              -ms-flex-preferred-size: 20%;
+              flex-basis: 20%;
+              -webkit-box-pack: start;
+              -ms-flex-pack: start;
+              justify-content: flex-start;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
               margin-left: auto;
+              .filter__item-logo {
+                margin-left: 0;
+              }
             }
 
             &:hover {
@@ -749,7 +756,7 @@ main {
           letter-spacing: -0.1px;
         }
         &-hot {
-          margin-left: auto;
+          margin-left: 10px;
           border-radius: 30px;
           width: 33px;
           min-width: 33px;
@@ -761,7 +768,9 @@ main {
           color: $color-text-title;
         }
         &-logo {
-          margin-left: 10px;
+          margin-left: auto;
+          max-width: 100px;
+          max-height: 50px;
           &--footer {
             display: none;
           }
