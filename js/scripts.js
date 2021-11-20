@@ -42,19 +42,6 @@ customFormBtnSubmit.addEventListener("click", () => {
 let footerHeight = document.querySelector('footer').offsetHeight,
     mainMarginBoottom = document.querySelector("main").style.marginBottom = `${footerHeight}px`;
 
-//set input filter value to 0 , when x btn clicked
-
-// let filterBtn = document.querySelector(".filter__input-del");
-// let filterForm = document.querySelector("#filter-input");
-
-// filterBtn.addEventListener("click", () => {
-//   filterForm.value = "";
-//   filterBtn.classList.remove("filter__input-del--show");
-// });
-
-// filterForm.addEventListener("input", () => {
-//   filterBtn.classList.add("filter__input-del--show");
-// });
 
 // custom multiselect
 let arrCheckboxes = [];
@@ -202,28 +189,6 @@ Isotope.prototype.arrange = function (opts) {
 
 Isotope.LayoutMode.create("none");
 
-// // isotope filter by tags, custom categories
-
-// let iso = new Isotope(".filter__items", {
-//   itemSelector: ".filter__item",
-//   layoutMode: "none",
-
-// });
-
-// // let masonryElems = document.querySelectorAll(".filter__item");
-
-// // bind filter button click
-// let filtersElem = document.querySelector(".filter__tags");
-// filtersElem.addEventListener("click", function (event) {
-//   console.log(event.target)
-//   // only work with buttons
-//   if (!matchesSelector(event.target, "button")) {
-//     return;
-//   }
-//   let filterValue = event.target.getAttribute("data-filter");
-
-//   iso.arrange({ filter: filterValue });
-// });
 
 // layout post tabs
 let layoutBtns = document.querySelectorAll(
@@ -251,9 +216,9 @@ for (let i = 0; i < layoutBtns.length; i++) {
     newArr[0].classList.remove("filter__tag-layout-item--active");
 
     if (layoutBtn.classList.contains('list')) {
-      postsParent.classList.toggle("filter__items--row");
+      postsParent.classList.add("filter__items--row");
     } else {
-      postsParent.classList.toggle("filter__items--row"); 
+      postsParent.classList.remove("filter__items--row"); 
     }
   });
 }
