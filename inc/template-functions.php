@@ -102,10 +102,14 @@ add_action( 'wp_ajax_nopriv_myfilter', 'filter' );
 function filter(){
 	
 
-	$tax_query = array(
+	$main_query = array(
 
 		'relation' => 'AND',
-);
+	);
+	$sub_query = array(
+
+		'relation' => 'OR',
+	);
 	$all_offices = array();
 	$all_department = array();
 	$all_academies = array();
@@ -124,14 +128,14 @@ function filter(){
 		}
 		
 		if( count( $all_department ) > 0 ) {
-			$tax_query[] = array(
+			$main_query[] =
 				
 				array(
 					'taxonomy' => 'department',
 					'field' => 'id',
 					'terms'=> $all_department,
-				)
-			);
+				);
+			
 		}
 	}
 
@@ -146,16 +150,16 @@ function filter(){
 		
 			
 			if( count( $all_offices ) > 0 ) {
-				$tax_query[] = array(
+				$sub_query[] = 
 
 					array(
 						'taxonomy' => 'offices',
 						'field' => 'id',
 						'terms'=> $all_offices,
 			
-					)
+					);
 				
-				);
+		
 			}
 	}
 
@@ -167,72 +171,51 @@ function filter(){
 			}
 			
 			if( count( $all_academies ) > 0 ) {
-				$tax_query[] = array(
+				$sub_query[] = 
 					
 					array(
 						'taxonomy' => 'academies',
 						'field' => 'id',
 						'terms'=> $all_academies,
 			
-					)
-				);
+					);
+		
 			}
+	}
+
+	// push academies or offices arrays to main array when they not = 0 
+
+	if (count( $all_academies ) ||  count( $all_offices) > 0 ) {
+		$main_query[] = $sub_query;
 	}
 
 
 
-	
-    // // for search title post 
-	// if (isset($_POST[filter-input])) {
-	// 	$args = array(
-    //         'posts_per_page' => -1,
-	// 	'post_type'   => 'vacancy',
-	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-	// 	'order'	=> 'DESC', // ASC или DESC
-    //         'tax_query' => $tax_query,
-    //         's' => $_GET['filter-input'],
-    //     );
-
-	// } else {
-		
-	// 		$args = array(
-	// 	'posts_per_page' => -1,
-	// 	'post_type'   => 'vacancy',
-	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
-	// 	'order'	=> 'DESC', // ASC или DESC
-	// 	'tax_query' => $tax_query,
-
-	// );
-	// }
-
-			$args = array(
+	$args = array(
 		'posts_per_page' => -1,
 		'post_type'   => 'vacancy',
 		'orderby' => 'date', 
 		'order'	=> 'DESC', 
-		'tax_query' => $tax_query,
-
+		'tax_query' => $main_query,
 	);
 
 	
 	global $post;
 
-	
-
 	$query = new WP_Query;
+
     $myposts = $query->query($args);
 
 	foreach( $myposts as $post ){
-	
+
 	setup_postdata($post);
-	
 
 	get_template_part( 'template-parts/content-job-posts');
 
 	}
 
 	wp_reset_postdata();
- 
+
 	die();
 }
 
