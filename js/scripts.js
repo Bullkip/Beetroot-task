@@ -216,9 +216,9 @@ for (let i = 0; i < layoutBtns.length; i++) {
     newArr[0].classList.remove("filter__tag-layout-item--active");
 
     if (layoutBtn.classList.contains('list')) {
-      postsParent.classList.toggle("filter__items--row");
+      postsParent.classList.add("filter__items--row");
     } else {
-      postsParent.classList.toggle("filter__items--row"); 
+      postsParent.classList.remove("filter__items--row"); 
     }
   });
 }
