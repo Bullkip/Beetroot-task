@@ -26,6 +26,9 @@
   max-width: 1170px;
   width: 95%;
   margin: 0 auto;
+  &--onlypost {
+    max-width: 770px;
+  }
 }
 
 .main-container.contact-us {
@@ -1000,6 +1003,101 @@ main {
 
 #svg-sprite {
   display: none;
+}
+
+.post {
+  text-align: left;
+  &__header {
+  }
+  &__title {
+       margin: 0 0 23px 0;
+    font-size: 3.75rem;
+    font-weight: 300;
+    line-height: 4rem;
+    letter-spacing: -1.3px;
+  }
+  &__short-description {
+       margin: 0 0 28px 0;
+    max-width: 75%;
+    font-size: 1.25rem;
+    letter-spacing: 0.2px;
+
+  }
+
+  &__header-menu {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  &__header-btn {
+    display: inline-block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid $color-text-title;
+    border-radius: 28px;
+    padding: 0 28px 0 24px;
+    background-color: $color-text-title;
+    font-size: 1.0625rem;
+    line-height: 50px;
+    font-weight: 300;
+    white-space: nowrap;
+    color: $color-white-text;
+    &:hover {
+      border-color: $contact-us-btn-border;
+      background-color: transparent;
+      color: $color-text-title;
+    }
+  }
+
+  &__locations,
+  &__tags {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+ 
+  }
+
+  &__location {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-number-light-grey;
+    &:last-of-type i {
+      display: none;
+    }
+  }
+  &__tag {
+    svg {
+
+
+      width: 36px;
+      height: 35px;
+
+    }
+    &:not(:last-of-type) {
+      svg {
+        margin-right: 10px;
+      }
+    }
+    &.Hot {
+      display: none;
+    }
+  }
 }
 
 @media only screen and (max-width: 1024px) {
