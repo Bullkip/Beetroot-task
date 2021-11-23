@@ -1009,6 +1009,7 @@ main {
   position:relative;
   text-align: left;
   &__header {
+    padding-bottom: 80px;
      &:after {
     content: "";
     position: absolute;

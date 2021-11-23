@@ -2465,6 +2465,10 @@ main {
 	text-align: left;
 }
 
+.post__header {
+	padding-bottom: 80px;
+}
+
 .post__header:after {
 	content: "";
 	position: absolute;
