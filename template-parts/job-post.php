@@ -57,12 +57,60 @@
             </div>
         </header>
         <div class="post__content">
-             <div class="main-container main-container--onlypost">
-                            </div>
+            <div class="main-container main-container--onlypost">
+                <p class="post__secondary-description"><?php the_field('job_post_secondary_descr')?></p>
+
+                <?php if (have_rows('job_post_responsebilities')): ?>
+                <div class="post__responsibility post__advantages">
+                    <h2 class="post__advantages-title"><?php _e('Responsibilities'); ?></h2>
+                    <ul class="post__advantages-list">
+                        <?php
+                            while( have_rows('job_post_responsebilities') ): the_row();
+                        
+                            $responsibility = get_sub_field('job_post_responsibility');
+                            echo "<li class='post__advantage'>$responsibility</li>";
+                                    endwhile;
+                        ?>
+                    </ul>
+                </div>
+                <?php endif ?>
+
+                <?php if (have_rows('job_post_search')): ?>
+                <div class="post__looking-for post__advantages">
+                    <h2 class="post__advantages-title"><?php _e('What we’re looking for'); ?></h2>
+                    <ul class="post__advantages-list">
+                        <?php
+                            while( have_rows('job_post_search') ): the_row();
+                        
+                            $search = get_sub_field('job_post_search_item');
+                            echo "<li class='post__advantage'>$search</li>";
+                                    endwhile;
+                        ?>
+                    </ul>
+                </div>
+                <?php endif ?>
+
+                <?php if (have_rows('job_post_bonus')): ?>
+                <div class="post__bonus post__advantages">
+                    <h2 class="post__advantages-title"><?php _e('Bonus'); ?></h2>
+                    <ul class="post__advantages-list">
+                        <?php
+                            while( have_rows('job_post_bonus') ): the_row();
+                        
+                            $bonus = get_sub_field('job_post_bonus_item');
+                            echo "<li class='post__advantage'>$bonus</li>";
+                                    endwhile;
+                        ?>
+                    </ul>
+                </div>
+                <?php endif ?>
+
+
+            </div>
         </div>
         <footer class="post__footer">
-             <div class="main-container main-container--onlypost">
-                            </div>
+            <div class="main-container main-container--onlypost">
+            </div>
         </footer>
         </div>
     </article>

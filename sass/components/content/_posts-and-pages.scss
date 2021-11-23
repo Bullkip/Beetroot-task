@@ -1006,27 +1006,29 @@ main {
 }
 
 .post {
-  position:relative;
+
   text-align: left;
   &__header {
+    position: relative;
+    z-index: 1;
     padding-bottom: 85px;
-     &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    bottom: 0;
-    -webkit-transform: skewY(-1deg);
-    -ms-transform: skewY(-1deg);
-    transform: skewY(-1deg);
-    -webkit-transform-origin: 100% 100%;
-    -ms-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
-    overflow: visible;
-    width: 100%;
-    height: 100%;
-    background: $color__background-body;
-  }
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      bottom: 0;
+      -webkit-transform: skewY(-1deg);
+      -ms-transform: skewY(-1deg);
+      transform: skewY(-1deg);
+      -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+      background: $color__background-body;
+    }
   }
   &__title {
     margin: 0 0 23px 0;
@@ -1045,7 +1047,6 @@ main {
   &__header-menu {
     flex-direction: row;
     align-items: center;
-    // justify-content: space-between;
     display: flex;
   }
 
@@ -1105,7 +1106,6 @@ main {
     }
   }
   &__tags {
-    
   }
   &__tag {
     svg {
@@ -1121,13 +1121,58 @@ main {
       display: none;
     }
   }
+
   &__company-logo {
     margin-left: auto;
     max-width: 120px;
     max-height: 60px;
   }
-
- 
+  &__content {
+    padding-top: 120px;
+    background-color: $color-white-text;
+  }
+  &__secondary-description {
+    max-width: 85%;
+    margin: 0 0 35px 0;
+    font-size: 1.25rem;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+  }
+  &__advantages {
+    margin-bottom: 35px;
+    &:last-of-type {
+      margin-bottom: 110px;
+    }
+    &-title {
+      margin: 0 0 16px 0;
+      font-size: 2.1875rem;
+      font-weight: 300;
+      line-height: 45px;
+      letter-spacing: -0.5px;
+    }
+    &-list {
+    }
+  }
+  &__advantage {
+    position: relative;
+    margin-left: 20px;
+    color: $color-number-light-grey;
+    font-size: 1.0625rem;
+    line-height: 25px;
+    letter-spacing: .2px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: -2%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      border: 1px solid rgba(224, 98, 135, 0.8);
+      border-radius: 50%;
+      width: 7px;
+      height: 7px;
+    }
+  }
 }
 
 @media only screen and (max-width: 1024px) {
