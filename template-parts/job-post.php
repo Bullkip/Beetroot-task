@@ -17,24 +17,24 @@
                              ?>
 <main>
     <article class="post">
-<div class="main-container main-container--onlypost">
         <header class="post__header">
-            <h1 class="post__title">
-                <? the_title(); ?>
-            </h1>
-            <p class="post__short-description"><?php the_field('job_post_shrt_descr')?>Exciting times! We’re extremely happy to work with an<br> awesome, new client based in Zürich, Switzerland. We’re looking for a QA engineer. It’s time to make a dream team happen.</p>
-            <div class="post__header-menu">
-                <a href="#" class="post__header-btn"><?php _e('Apply now'); ?></a>
-                <div class="post__locations">
-                    <?php  
+            <div class="main-container main-container--onlypost">
+                <h1 class="post__title">
+                    <? the_title(); ?>
+                </h1>
+                <p class="post__short-description"><?php the_field('job_post_shrt_descr')?></p>
+                <div class="post__header-menu">
+                    <a href="#" class="post__header-btn"><?php _e('Apply now'); ?></a>
+                    <div class="post__locations">
+                        <?php  
                     $term_list = wp_get_post_terms( $post->ID, $direction_check, array('fields' => 'names') );
                     foreach( $term_list as $term ){
                     echo "<span class='post__location'>{$term} <i>&nbsp;& &nbsp;</i></span>";   
                     }
                 ?>
-                </div>
-                <div class="post__tags">
-                    <?php
+                    </div>
+                    <div class="post__tags">
+                        <?php
                     $tags_list = wp_get_post_terms( $post->ID, 'tags' );
                     foreach( $tags_list as $tag){
                             echo "<div class='post__tag {$tag->name}'>
@@ -44,19 +44,26 @@
                                 </div>";   
                                 }
                                 ?>
-                </div>
-                <div class="post__company-logo">
-                    <?
+                    </div>
+                    <div class="post__company-logo">
+                        <?
                                  $company_logo = get_field('company_logo');
                                     $result_logo = $company_logo ? "<img src='{$company_logo}' alt='' class='filter__item-logo'>" : "";
                                      echo $result_logo 
 
                                      ?>
+                    </div>
                 </div>
             </div>
         </header>
-        <div class="post__content"></div>
-        <footer class="post__footer"></footer>
-    </div>
+        <div class="post__content">
+             <div class="main-container main-container--onlypost">
+                            </div>
+        </div>
+        <footer class="post__footer">
+             <div class="main-container main-container--onlypost">
+                            </div>
+        </footer>
+        </div>
     </article>
 </main>
