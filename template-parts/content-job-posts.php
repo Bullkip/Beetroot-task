@@ -39,7 +39,7 @@
     </div>
     <div class="filter__item-footer">
         <a href="<? the_permalink() ?>" class="filter__item-arrow-link">
-          <?=  _e('Details','mydomain'); ?> 
+            <?=  _e('Details','mydomain'); ?>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29px"
                 height="6px">
                 <path fill-rule="evenodd" fill="rgb(188, 32, 75)"

@@ -258,9 +258,27 @@ function my_acf_op_init() {
             'page_title'    => __('Socials Settings'),
             'menu_title'    => __('Socials'),
             'menu_slug'     => 'social-general-settings',
-			'position'      => 26,
+			'position'      => 27,
 			'icon_url'      => 'dashicons-share',
 			'post_id'		=> 'socials'
+        ));
+    }
+
+
+}
+// add option vacancy page
+add_action('acf/init', 'vacancy_options_init');
+function vacancy_options_init() {
+
+    if( function_exists('acf_add_options_page') ) {
+
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Vacancy main settings'),
+            'menu_title'    => __('Vacancy setting'),
+            'menu_slug'     => 'vacancy-settings',
+			'position'      => 26,
+			'icon_url'      => 'dashicons-table-row-after',
+			'post_id'		=> 'vacancy_settings'
         ));
     }
 
@@ -276,11 +294,58 @@ function my_footer_op_init() {
             'page_title'    => __('Footer'),
             'menu_title'    => __('Footer'),
             'menu_slug'     => 'footer-settings',
-			'position'      => 27,
+			'position'      => 28,
 			'icon_url'      => 'dashicons-table-row-after',
 			'post_id'		=> 'footer'
         ));
     }
 
 
+}
+
+// add svg upload type
+add_filter( 'upload_mimes', 'svg_upload_allow' );
+
+function svg_upload_allow( $mimes ) {
+	$mimes['svg']  = 'image/svg+xml';
+
+	return $mimes;
+
+}
+// add svg mime type
+
+add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
+
+function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
+
+	if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) )
+		$dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
+	else
+		$dosvg = ( '.svg' === strtolower( substr($filename, -4) ) );
+	if( $dosvg ){
+		if( current_user_can('manage_options') ){
+
+			$data['ext']  = 'svg';
+			$data['type'] = 'image/svg+xml';
+		}
+		else {
+			$data['ext'] = $type_and_ext['type'] = false;
+		}
+
+	}
+
+	return $data;
+}
+
+// view svg in media library
+
+add_filter( 'wp_prepare_attachment_for_js', 'show_svg_in_media_library' );
+
+function show_svg_in_media_library( $response ) {
+	if ( $response['mime'] === 'image/svg+xml' ) {
+		$response['image'] = [
+			'src' => $response['url'],
+		];
+	}
+	return $response;
 }

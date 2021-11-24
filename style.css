@@ -1420,7 +1420,7 @@ textarea {
 	margin: 0 auto;
 }
 
-.main-container--onlypost {
+.main-container--job {
 	max-width: 770px;
 }
 
@@ -2460,17 +2460,17 @@ main {
 	display: none;
 }
 
-.post {
+.job {
 	text-align: left;
 }
 
-.post__header {
+.job__header {
 	position: relative;
 	z-index: 1;
 	padding-bottom: 85px;
 }
 
-.post__header:after {
+.job__header:after {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -2488,7 +2488,7 @@ main {
 	background: #f4f4f1;
 }
 
-.post__title {
+.job__title {
 	margin: 0 0 23px 0;
 	font-size: 3.75rem;
 	font-weight: 300;
@@ -2496,20 +2496,20 @@ main {
 	letter-spacing: -1.3px;
 }
 
-.post__short-description {
+.job__short-description {
 	margin: 0 0 28px 0;
 	max-width: 75%;
 	font-size: 1.25rem;
 	letter-spacing: 0.2px;
 }
 
-.post__header-menu {
+.job__header-menu {
 	flex-direction: row;
 	align-items: center;
 	display: flex;
 }
 
-.post__header-btn {
+.job__header-btn {
 	display: inline-block;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -2525,13 +2525,13 @@ main {
 	color: #fff;
 }
 
-.post__header-btn:hover {
+.job__header-btn:hover {
 	border-color: #df97ab;
 	background-color: transparent;
 	color: #bc204b;
 }
 
-.post__locations, .post__tags {
+.job__locations, .job__tags {
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: row;
@@ -2544,13 +2544,13 @@ main {
 	display: flex;
 }
 
-.post__locations {
+.job__locations {
 	flex-wrap: wrap;
 	margin-left: 60px;
 	width: 200px;
 }
 
-.post__location {
+.job__location {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -2562,35 +2562,35 @@ main {
 	color: #3d393599;
 }
 
-.post__location:last-of-type i {
+.job__location:last-of-type i {
 	display: none;
 }
 
-.post__tag svg {
+.job__tag svg {
 	width: 36px;
 	height: 35px;
 }
 
-.post__tag:not(:last-of-type) svg {
+.job__tag:not(:last-of-type) svg {
 	margin-right: 10px;
 }
 
-.post__tag.Hot {
+.job__tag.Hot {
 	display: none;
 }
 
-.post__company-logo {
+.job__company-logo {
 	margin-left: auto;
 	max-width: 120px;
 	max-height: 60px;
 }
 
-.post__content {
+.job__content {
 	padding-top: 120px;
 	background-color: #fff;
 }
 
-.post__secondary-description {
+.job__secondary-description {
 	max-width: 85%;
 	margin: 0 0 35px 0;
 	font-size: 1.25rem;
@@ -2598,15 +2598,7 @@ main {
 	letter-spacing: 0.2px;
 }
 
-.post__advantages {
-	margin-bottom: 35px;
-}
-
-.post__advantages:last-of-type {
-	margin-bottom: 110px;
-}
-
-.post__advantages-title {
+.job__title {
 	margin: 0 0 16px 0;
 	font-size: 2.1875rem;
 	font-weight: 300;
@@ -2614,16 +2606,23 @@ main {
 	letter-spacing: -0.5px;
 }
 
-.post__advantage {
+.job__advantages {
+	margin-bottom: 35px;
+}
+
+.job__advantages:last-of-type {
+	margin-bottom: 110px;
+}
+
+.job__advantage {
 	position: relative;
 	margin-left: 20px;
-	color: #3d393599;
 	font-size: 1.0625rem;
 	line-height: 25px;
 	letter-spacing: .2px;
 }
 
-.post__advantage:before {
+.job__advantage:before {
 	content: "";
 	position: absolute;
 	top: 11px;
@@ -2634,6 +2633,42 @@ main {
 	border-radius: 50%;
 	width: 7px;
 	height: 7px;
+}
+
+.benefits {
+	padding: 100px 0 110px;
+	background: #f4f4f1;
+}
+
+.benefits h2 {
+	margin-bottom: 60px;
+}
+
+.benefits__grid {
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+	grid-gap: 50px;
+	display: grid;
+}
+
+.benefit {
+	position: relative;
+	display: flex;
+}
+
+.benefit span {
+	padding-left: 70px;
+	font-size: 1.0625rem;
+	line-height: 25px;
+}
+
+.benefit svg {
+	position: absolute;
+	top: 50%;
+	left: 8%;
+	transform: translate(-50%, -50%);
+	max-width: 60px;
+	max-height: 50px;
 }
 
 @media only screen and (max-width: 1024px) {
