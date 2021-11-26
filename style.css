@@ -2513,10 +2513,10 @@ main {
 }
 
 .job__title--socials {
-	font-size: 2.1875rem;
+	font-size: 1.75rem;
 	font-weight: 300;
 	line-height: 45px;
-	letter-spacing: -1px;
+	letter-spacing: -0.4px;
 }
 
 .job__short-description {
@@ -2755,8 +2755,11 @@ main {
 .apply-form__data-field:nth-child(4) {
 	flex-basis: 100%;
 	margin: 45px 0 40px;
-	max-width: 100% input;
-	max-width-width: 100%;
+	max-width: 100%;
+}
+
+.apply-form__data-field:nth-child(4) input {
+	width: 100%;
 }
 
 .apply-form__attach {
@@ -2927,18 +2930,20 @@ main {
 }
 
 .socials {
-	padding: 90px 0;
+	position: relative;
+	padding: 81px 0;
 	background: #f4f4f1;
 }
 
 .socials__content {
 	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
 	display: flex;
 }
 
 .socials__content .socials__title {
-	margin: 0 20px 0 0;
+	margin: 0;
 }
 
 .socials__content .socials__icons {
@@ -2946,9 +2951,31 @@ main {
 	display: flex;
 }
 
+.socials__content .socials__icon {
+	margin-right: 5px;
+}
+
 .socials__content .socials__icon svg {
 	max-width: 39px;
 	max-height: 39px;
+}
+
+.socials:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	bottom: 0;
+	-webkit-transform: skewY(-1deg);
+	-ms-transform: skewY(-1deg);
+	transform: skewY(-1deg);
+	-webkit-transform-origin: 100% 100%;
+	-ms-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+	overflow: visible;
+	width: 100%;
+	height: 100%;
+	background: #f4f4f1;
 }
 
 @media only screen and (max-width: 1024px) {

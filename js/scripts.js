@@ -16,7 +16,7 @@ headerNavBtn.addEventListener("click", function () {
   headerNavWrap.classList.toggle("change");
 });
 
-//  global document click (condition click cf7 email field)
+//  global document click  cf7 
 document.addEventListener("click", (e) => {
   if (e.target.closest(".wpcf7-form input:not(input[type='checkbox'])")) {
     const elem = e.target;
@@ -60,7 +60,7 @@ customFormBtnSubmit.addEventListener("click", () => {
 
 // footer paralax
 
-let footerHeight = document.querySelector("footer").offsetHeight,
+let footerHeight = document.querySelector("footer.footer").offsetHeight,
   mainMarginBoottom = (document.querySelector(
     "main"
   ).style.marginBottom = `${footerHeight}px`);

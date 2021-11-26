@@ -1031,11 +1031,10 @@ main {
       letter-spacing: -1px;
     }
     &--socials {
-      font-size: 2.1875rem;
-    font-weight: 300;
-    line-height: 45px;
-      letter-spacing: -1px;
-
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 45px;
+      letter-spacing: -0.4px;
     }
   }
   &__short-description {
@@ -1258,10 +1257,10 @@ main {
     }
 
     &:nth-child(4) {
-         flex-basis: 100%;
-    margin: 45px 0 40px;
-    max-width: 100%
-      input {
+      flex-basis: 100%;
+      margin: 45px 0 40px;
+      max-width: 100%;
+       input {
         width: 100%;
       }
     }
@@ -1278,7 +1277,6 @@ main {
       line-height: 25px;
       label {
         &:nth-child(1) {
-
           margin-right: 24px;
         }
       }
@@ -1306,8 +1304,6 @@ main {
   }
   &__checkboxes {
     margin-bottom: 20px;
-
-  
   }
   &__checkbox-field {
     position: relative;
@@ -1342,11 +1338,11 @@ main {
         background-position: center;
       }
     }
-  .apply-form__attach-link {
-         margin: 0;
-    font-size: 0.875rem;
-    letter-spacing: 0;
-    text-transform: none;
+    .apply-form__attach-link {
+      margin: 0;
+      font-size: 0.875rem;
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     &:first-of-type {
@@ -1372,86 +1368,99 @@ main {
   }
 
   .wpcf7 form {
-    position:relative;
+    position: relative;
   }
 
   .wpcf7 .wpcf7-response-output {
-       position: absolute;
+    position: absolute;
     left: 25%;
     bottom: 5%;
     margin: 0;
     padding: 0;
     font-size: 0.9375rem;
     line-height: 23px;
-  
   }
 
   .wpcf7 form.sent .wpcf7-response-output {
-    border:none;
-  color: #46b450; /* Green */
-  &:before {
-           content: "";
-    position: absolute;
-    top: 15%;
-    left: -5%;
-    transition: all 0.3s ease-in-out;
-    width: 15px;
-    height: 15px;
-    background-image: url(assets/image/-e-checkmark.svg);
-    background-size: 11px 10px;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: invert(.1) contrast(0.5) saturate(0.8) sepia(.6);
-}
+    border: none;
+    color: #46b450; /* Green */
+    &:before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      left: -5%;
+      transition: all 0.3s ease-in-out;
+      width: 15px;
+      height: 15px;
+      background-image: url(assets/image/-e-checkmark.svg);
+      background-size: 11px 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: invert(0.1) contrast(0.5) saturate(0.8) sepia(0.6);
+    }
+  }
 
+  .wpcf7 form.failed .wpcf7-response-output,
+  .wpcf7 form.aborted .wpcf7-response-output {
+    border: none;
+    color: #dc3232; /* Red */
+  }
 
-}
+  .wpcf7 form.spam .wpcf7-response-output {
+    border: none;
+    color: #f56e28; /* Orange */
+  }
 
-.wpcf7 form.failed .wpcf7-response-output,
-.wpcf7 form.aborted .wpcf7-response-output {
-  border:none;
-	color: #dc3232; /* Red */
-}
-
-.wpcf7 form.spam .wpcf7-response-output {
-  border:none;
-	color: #f56e28; /* Orange */
-}
-
-.wpcf7 form.invalid .wpcf7-response-output,
-.wpcf7 form.unaccepted .wpcf7-response-output,
-.wpcf7 form.payment-required .wpcf7-response-output {
-  border:none;
-	color: #ffb900; /* Yellow */
-}
-
+  .wpcf7 form.invalid .wpcf7-response-output,
+  .wpcf7 form.unaccepted .wpcf7-response-output,
+  .wpcf7 form.payment-required .wpcf7-response-output {
+    border: none;
+    color: #ffb900; /* Yellow */
+  }
 }
 
 .socials {
- 
-  padding: 90px 0;
-   background: $color__background-body;
-   &__content{
- flex-direction: row;
- align-items:center;
-  display: flex;
-    .socials__title {
-    margin: 0 20px 0 0;
-
-  }
-  .socials__icons {
-  flex-direction: row;
+  position: relative;
+  padding: 81px 0;
+  background: $color__background-body;
+  &__content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     display: flex;
-  }
-  .socials__icon {
-  
-    svg {
-      max-width: 39px;
-      max-height: 39px;
+    .socials__title {
+      margin: 0;
+    }
+    .socials__icons {
+      flex-direction: row;
+      display: flex;
+    }
+    .socials__icon {
+      margin-right: 5px;
+
+      svg {
+        max-width: 39px;
+        max-height: 39px;
+      }
     }
   }
-   }
-
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: skewY(-1deg);
+    -ms-transform: skewY(-1deg);
+    transform: skewY(-1deg);
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    background: $color__background-body;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .filter__item-tags:not(.filter__item-location-tags) {
