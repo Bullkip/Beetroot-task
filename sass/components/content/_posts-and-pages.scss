@@ -1436,12 +1436,29 @@ main {
       display: flex;
     }
     .socials__icon {
+      transition: all 0.3s ease-in-out;
       margin-right: 5px;
-
+      cursor:pointer;
+      &--custom {
+         max-width: 39px;
+        max-height: 39px;
+        
+        img {
+          width: 100%;
+          height: auto;
+          border-radius:50%;
+        }
+      }
       svg {
         max-width: 39px;
         max-height: 39px;
       }
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        opacity: 0.7;
+      };
+
     }
   }
   &:after {

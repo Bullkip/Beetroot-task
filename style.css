@@ -2952,12 +2952,30 @@ main {
 }
 
 .socials__content .socials__icon {
+	transition: all 0.3s ease-in-out;
 	margin-right: 5px;
+	cursor: pointer;
+}
+
+.socials__content .socials__icon--custom {
+	max-width: 39px;
+	max-height: 39px;
+}
+
+.socials__content .socials__icon--custom img {
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
 }
 
 .socials__content .socials__icon svg {
 	max-width: 39px;
 	max-height: 39px;
+}
+
+.socials__content .socials__icon:hover {
+	transition: all 0.3s ease-in-out;
+	opacity: 0.7;
 }
 
 .socials:after {
