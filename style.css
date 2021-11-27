@@ -3008,6 +3008,58 @@ main {
 		-ms-grid-columns: 1fr 1fr;
 		grid-template-columns: 1fr 1fr;
 	}
+	.job__short-description {
+		max-width: 100%;
+	}
+	.job__short-description br {
+		display: none;
+	}
+	.job__header-menu {
+		flex-direction: column;
+	}
+	.job__header-menu > *:not(:last-child) {
+		margin-bottom: 30px;
+	}
+	.job__locations {
+		justify-content: center;
+		margin-left: 0;
+		width: 100%;
+	}
+	.job__company-logo {
+		margin-left: 0;
+	}
+	.job__header {
+		padding-bottom: 65px;
+	}
+	.job__secondary-description {
+		max-width: 100%;
+	}
+	.job__content {
+		padding: 80px 0 85px;
+	}
+	.benefit svg {
+		left: -20%;
+		transform: translate(-50%, -50%) scale(2);
+		max-width: 50px;
+		max-height: 100%;
+		height: 50px;
+	}
+	.benefit {
+		justify-self: flex-end;
+		max-width: 75%;
+		padding-left: 0;
+	}
+	.apply-form__item {
+		flex-direction: column;
+	}
+	.apply-form__data-field {
+		max-width: 100%;
+		flex-basis: 100%;
+		margin-bottom: 30px;
+	}
+	.apply-form__data-field:nth-child(4) {
+		margin-top: 0;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -3064,6 +3116,31 @@ main {
 		flex-basis: 20%;
 		display: block;
 	}
+	.main-container--job {
+		width: 90%;
+	}
+	.benefit {
+		max-width: 75%;
+		padding-right: 15%;
+	}
+	.benefit svg {
+		transform: translate(-50%, -50%) scale(1.5);
+	}
+	.apply-form__attach {
+		flex-direction: column;
+	}
+	.apply-form__attach-field:nth-child(1) {
+		margin-bottom: 30px;
+	}
+	.socials__content {
+		flex-direction: column;
+	}
+	.socials__content .socials__title {
+		margin-bottom: 20px;
+	}
+	.footer-menus {
+		margin-bottom: 20px;
+	}
 }
 
 @media only screen and (max-width: 600px) {
@@ -3074,11 +3151,17 @@ main {
 	.filter__posts .filter__tag-layout-mode {
 		display: none;
 	}
+	.benefits__grid {
+		grid-template-columns: 1fr;
+	}
+	.benefit svg {
+		transform: translate(-50%, -50%) scale(2);
+	}
 }
 
 @media only screen and (max-width: 480px) {
 	.header .custom-logo {
-		max-width: 120px;
+		max-width: 100px;
 	}
 	.dropdown__wrapper--double :nth-child(1).dropdown__items {
 		margin-right: 10px;
@@ -3091,6 +3174,9 @@ main {
 	}
 	.dropdown__wrapper--double .dropdown__items {
 		min-width: auto;
+	}
+	.job__title--socials {
+		font-size: 1.5rem;
 	}
 }
 

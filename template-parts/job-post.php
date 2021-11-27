@@ -113,7 +113,7 @@
                             $benefit_icon = get_sub_field('benefit_icon');
                             echo "<div class='benefit'>
                                         <svg >
-                                            <use  width='60px' height='50px' href='#$benefit_icon'></use>
+                                            <use  width='100%' height='100%' href='#$benefit_icon'></use>
                                         </svg>
                                         <span>$benefit</span>
                                   </div>";
