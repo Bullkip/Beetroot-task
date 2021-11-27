@@ -194,12 +194,7 @@
             font-size: 1.125rem;
             letter-spacing: -0.3px;
             color: $color-text-email-input;
-            &.form-focus {
-              top: 100%;
-              -webkit-transition: all 0.3s ease-in-out;
-              -o-transition: all 0.3s ease-in-out;
-              transition: all 0.3s ease-in-out;
-            }
+         
           }
           input[type="submit"] {
             position: absolute;
@@ -233,8 +228,15 @@
           .wpcf7-spinner {
             display: none;
           }
-
           &-policy {
+          }
+          &:focus-within {
+            label {
+              top: 100%;
+              -webkit-transition: all 0.3s ease-in-out;
+              -o-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+            }
           }
         }
       }

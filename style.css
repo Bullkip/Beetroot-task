@@ -1228,13 +1228,6 @@ textarea {
 	color: #83807e;
 }
 
-.footer-media .footer-subscribe form.wpcf7-form .subscribe-form label.form-focus {
-	top: 100%;
-	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-}
-
 .footer-media .footer-subscribe form.wpcf7-form .subscribe-form input[type="submit"] {
 	position: absolute;
 	z-index: -1;
@@ -1268,6 +1261,13 @@ textarea {
 
 .footer-media .footer-subscribe form.wpcf7-form .subscribe-form .wpcf7-spinner {
 	display: none;
+}
+
+.footer-media .footer-subscribe form.wpcf7-form .subscribe-form:focus-within label {
+	top: 100%;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .footer-media .footer-subscribe .wpcf7 form.sent .wpcf7-response-output {
@@ -2727,13 +2727,6 @@ main {
 	pointer-events: none;
 }
 
-.apply-form__data-field label.focus {
-	top: -20px;
-	transition: all 0.3s ease-in-out;
-	font-size: 0.625rem;
-	color: #e1e1de;
-}
-
 .apply-form__data-field input {
 	transition: all 0.3s ease-in-out;
 	width: 100%;
@@ -2750,6 +2743,13 @@ main {
 .apply-form__data-field input:focus {
 	transition: all 0.3s ease-in-out;
 	border-color: #bc204b;
+}
+
+.apply-form__data-field:focus-within label {
+	top: -20px;
+	transition: all 0.3s ease-in-out;
+	font-size: 0.625rem;
+	color: #e1e1de;
 }
 
 .apply-form__data-field:nth-child(4) {

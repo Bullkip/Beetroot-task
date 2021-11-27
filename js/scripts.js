@@ -10,50 +10,8 @@ if (departmentBtn) {
   let defaultDepartmentValue = departmentBtn.value;
 }
 
-// header nav
-headerNavBtn.addEventListener("click", function () {
-  headerNavBtn.classList.toggle("change");
-  headerNavWrap.classList.toggle("change");
-});
-
-//  global document click  cf7 
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".wpcf7-form input:not(input[type='checkbox'])")) {
-    const elem = e.target;
-    elem.addEventListener("blur", (e) => {
-      if (e.target.closest(".footer-subscribe")) {
-        if(!elem.value) {
-          elem
-            .closest(".subscribe-form__wrap")
-            .querySelector("label")
-            .classList.remove("form-focus");
-        }
-        
-      } else if (e.target.closest(".apply-form__container")) {
-        if(!elem.value) {
-          elem
-            .closest(".apply-form__data-field")
-            .querySelector("label")
-            .classList.remove("focus");
-        }
-      }
-    });
-    elem.addEventListener("focus", (e) => {
-      if (e.target.closest(".footer-subscribe")) {
-        elem
-          .closest(".subscribe-form__wrap")
-          .querySelector("label")
-          .classList.add("form-focus");
-      } else if (e.target.closest(".apply-form__container")) {
-        elem
-          .closest(".apply-form__data-field")
-          .querySelector("label")
-          .classList.add("focus");
-      }
-    });
-  }
-});
-
+//  submit on click footer form  btn 
+ 
 customFormBtnSubmit.addEventListener("click", () => {
   document.querySelector(".wpcf7-form").submit();
 });
