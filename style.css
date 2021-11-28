@@ -2691,6 +2691,25 @@ main {
 	max-height: 50px;
 }
 
+.benefit__img {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	display: flex;
+	padding-left: 0;
+}
+
+.benefit__img img {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	max-width: 50px;
+}
+
+.benefit__img span {
+	flex-basis: 80%;
+}
+
 .apply-form {
 	padding: 108px 0;
 }

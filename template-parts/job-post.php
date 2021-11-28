@@ -108,15 +108,52 @@
                     <h3 class="job__title"><?php _e('Benefits'); ?></h3>
                     <div class="benefits__grid">
                         <?php
+                             function checkIcon ($link) {
+                                if ($link != NULL){
+                                    if (@getimagesize($link)){
+                                        return true;
+                                    } else {
+                                        return false;
+                                    }
+                                } else {
+                                    return false;
+                                }
+                            };
                             while( have_rows('benefits','vacancy_settings') ): the_row();
                             $benefit = get_sub_field('benefit_text');
                             $benefit_icon = get_sub_field('benefit_icon');
-                            echo "<div class='benefit'>
-                                        <svg >
-                                            <use  width='100%' height='100%' href='#$benefit_icon'></use>
-                                        </svg>
-                                        <span>$benefit</span>
-                                  </div>";
+                            $benefit_icon_location = get_sub_field('choose_icon_location');
+                            $benefit_new_icon = get_sub_field('benefit_icon_new');
+                            $benefit_local_icon = get_sub_field('benefit_local_icon');
+                            $benefit_remote_icon = get_sub_field('benefit_remote_icon');
+                            $no_icon = get_template_directory_uri().'/assets/image/no-img.jpeg';
+                            if ($benefit_icon_location == 'svg-sprite') {
+                                echo "<div class='benefit'>
+                                            <svg >
+                                                <use  width='100%' height='100%' href='#$benefit_icon'></use>
+                                            </svg>
+                                            <span>$benefit</span>
+                                      </div>";
+                            } else {
+                                if($benefit_new_icon == 'local') {
+                                   echo "<div class='benefit benefit__img'>
+                                            <img src='$benefit_local_icon' class='benefit__img'>
+                                            <span>$benefit</span>
+                                      </div>"; 
+                                } else {
+                                    if (checkIcon($benefit_remote_icon)) {
+                                        echo "<div class='benefit benefit__img'>
+                                            <img src='$benefit_remote_icon' class='benefit__img'>
+                                            <span>$benefit</span>
+                                      </div>"; 
+                                    } else {
+                                        echo "<div class='benefit benefit__img'>
+                                            <img src='$no_icon' class='benefit__img'>
+                                            <span>$benefit</span>
+                                      </div>"; 
+                                    }
+                                }
+                            }
                             endwhile;
                         ?>
                     </div>
@@ -146,11 +183,9 @@
                                     } else {
                                         return false;
                                     }
-                                    
                                 } else {
                                     return false;
                                 }
-                                
                             };
                             while( have_rows('socials','vacancy_settings') ): the_row();
                             $social__select = get_sub_field('socials_select');   

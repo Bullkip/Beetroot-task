@@ -1203,6 +1203,26 @@ main {
     max-width: 60px;
     max-height: 50px;
   }
+  
+  &__img {
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between ;
+    display: flex;
+    padding-left: 0;
+
+
+    img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      max-width: 50px;
+    }
+     span {
+       flex-basis: 80%;
+     }
+  }
+
 }
 
 .apply-form {
