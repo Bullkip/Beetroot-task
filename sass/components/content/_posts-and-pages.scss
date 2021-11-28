@@ -1203,14 +1203,13 @@ main {
     max-width: 60px;
     max-height: 50px;
   }
-  
+
   &__img {
     flex-direction: row;
-    align-items:center;
-    justify-content: space-between ;
+    align-items: center;
+    justify-content: space-between;
     display: flex;
     padding-left: 0;
-
 
     img {
       display: inline-block;
@@ -1218,11 +1217,10 @@ main {
       height: auto;
       max-width: 50px;
     }
-     span {
-       flex-basis: 80%;
-     }
+    span {
+      flex-basis: 80%;
+    }
   }
-
 }
 
 .apply-form {
@@ -1556,6 +1554,22 @@ main {
     height: 50px;
   }
 
+  .benefit__img {
+    img {
+      position: absolute;
+      top: 50%;
+      left: -20%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      max-width: 75px;
+    }
+    span {
+      max-width: 100%;
+    }
+  }
+
   .benefit {
     justify-self: flex-end;
     max-width: 75%;
@@ -1645,6 +1659,11 @@ main {
     padding-right: 15%;
   }
 
+  
+  .benefit__img {
+    padding: 0;
+  }
+
   .benefit svg {
     transform: translate(-50%, -50%) scale(1.5);
   }
@@ -1706,6 +1725,12 @@ main {
   .dropdown__wrapper--double .dropdown__items {
     min-width: auto;
   }
+
+  .benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 26px 0 0 15px;
+}
 
   .job__title--socials {
     font-size: 1.5rem;
