@@ -2526,13 +2526,16 @@ main {
 	}
 }
 
+@media only screen and (max-width: 767px) {
+	.filter__posts .filter__tag-layout-mode {
+		display: none;
+	}
+}
+
 @media only screen and (max-width: 600px) {
 	.filter__posts .filter__items {
 		-ms-grid-columns: 1fr;
 		grid-template-columns: 1fr;
-	}
-	.filter__posts .filter__tag-layout-mode {
-		display: none;
 	}
 }
 
