@@ -139,6 +139,19 @@
                         </h3>
                         <div class="socials__icons">
                             <?php
+                            function check ($link) {
+                                if ($link != NULL){
+                                    if (@getimagesize($link)){
+                                        return true;
+                                    } else {
+                                        return false;
+                                    }
+                                    
+                                } else {
+                                    return false;
+                                }
+                                
+                            };
                             while( have_rows('socials','vacancy_settings') ): the_row();
                             $social__select = get_sub_field('socials_select');   
                             $social_link = get_sub_field('social_link');     
@@ -146,9 +159,11 @@
                             $social_path = get_sub_field('social_path');
                             $social_local = get_sub_field('social_local');
                             $social_remote = get_sub_field('social_remote');
+                            $no_img = get_template_directory_uri().'/assets/image/no-img.jpeg';
 
-                            $custom_icon = $social_path == 'local' ? $social_local : $social_remote ;
-
+                            
+                            
+                        
                             if ($social__select == "icon"){
                                 
                             echo "<a href='$social_link' class='socials__icon'>
@@ -157,13 +172,27 @@
                                         </svg>
                                   </a>";
                             } else {
-                              
-                                
-                            echo "<a href='$social_link' class='socials__icon socials__icon--custom'>
-                                        <img src='$custom_icon'  class='social__img'>
+                                if ($social_path == 'local') {
+                                    echo "<a href='$social_link' class='socials__icon socials__icon--custom'>
+                                        <img src='$social_local'  class='social__img'>
                                    
                                   </a>";
+                                } else {
+                                    if (check($social_remote)) {
+                                        echo "<a href='$social_link' class='socials__icon socials__icon--custom'>
+                                        <img src='$social_remote'  class='social__img'>;
+                                        </a>";
+                                    } else {
+                                        
+                                        echo "<a href='$social_link' class='socials__icon socials__icon--custom'>
+                                        <img src='$no_img'  class='social__img'>;
+                                        </a>";
+                                }
+                              
+                                
+                            
                             }
+                        }
 
                             endwhile;
                             ?>

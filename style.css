@@ -2965,6 +2965,8 @@ main {
 .socials__content .socials__icon--custom img {
 	width: 100%;
 	height: auto;
+	min-width: 39px;
+	min-height: 39px;
 	border-radius: 50%;
 }
 

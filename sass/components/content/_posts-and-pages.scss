@@ -1449,6 +1449,8 @@ main {
         img {
           width: 100%;
           height: auto;
+          min-width: 39px;
+          min-height: 39px;
           border-radius: 50%;
         }
       }
@@ -1686,5 +1688,6 @@ main {
   }
 
   .job__title--socials {
-    font-size: 1.5rem;}
+    font-size: 1.5rem;
+  }
 }
