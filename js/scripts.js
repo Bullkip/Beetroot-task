@@ -163,9 +163,9 @@ Isotope.prototype.arrange = function (opts) {
 
 Isotope.LayoutMode.create("none");
 
-// layout post tabs
-let layoutBtns = document.querySelectorAll("button.filter__tag-layout-item");
-postsParent = document.querySelector(".filter__items");
+// layout post tab
+const layoutBtns = document.querySelectorAll("button.filter__tag-layout-item"),
+      postsParent = document.querySelector(".filter__items");
 
 let setIndex = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -181,7 +181,7 @@ for (let i = 0; i < layoutBtns.length; i++) {
     if (!layoutBtn.classList.contains("filter__tag-layout-item--active")) {
       layoutBtn.classList.add("filter__tag-layout-item--active");
     }
-    let elemIndex = layoutBtn.getAttribute("data-index");
+    const elemIndex = layoutBtn.getAttribute("data-index");
     newArr = [...layoutBtns];
     newArr.splice(elemIndex, 1);
     newArr[0].classList.remove("filter__tag-layout-item--active");
@@ -193,3 +193,19 @@ for (let i = 0; i < layoutBtns.length; i++) {
     }
   });
 }
+
+// delete list post when  
+const windowSize = window.matchMedia("(max-width: 767px)"),
+      parentPosts = document.querySelector('.filter__items'),
+      itemClass = "filter__items--row";
+
+let removeClassOnMediaQuery = (windowSize,element,elementClass) => {
+  if (windowSize.matches && element.classList.contains(itemClass)) {
+      element
+      .classList.remove(itemClass)
+  }
+};      
+
+window.addEventListener("resize", () => removeClassOnMediaQuery(windowSize,parentPosts,itemClass));
+
+
