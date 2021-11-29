@@ -95,10 +95,24 @@ function beetroot_test_task_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'beetroot_test_task_scripts' );
 
+/**
+ * Ajax.
+ */
+require get_template_directory() . '/inc/ajax-functions.php';
 
 /**
- * Functions which enhance the theme by hooking into WordPress.
+ * Custom Types.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/custom-types.php';
+
+/**
+ * Helpers.
+ */
+require get_template_directory() . '/inc/helpers-functions.php';
+
+/**
+ * Menus.
+ */
+require get_template_directory() . '/inc/menu-functions.php';
 
 
