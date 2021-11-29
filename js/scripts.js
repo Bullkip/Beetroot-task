@@ -10,6 +10,12 @@ if (departmentBtn) {
   let defaultDepartmentValue = departmentBtn.value;
 }
 
+// header nav
+headerNavBtn.addEventListener("click", function () {
+  headerNavBtn.classList.toggle("change");
+  headerNavWrap.classList.toggle("change");
+});
+
 //  submit on click footer form  btn 
  
 customFormBtnSubmit.addEventListener("click", () => {
@@ -24,10 +30,11 @@ let footerHeight = document.querySelector("footer.footer").offsetHeight,
   ).style.marginBottom = `${footerHeight}px`);
 
 // custom multiselect
-let arrCheckboxes = [];
-arrCheckboxes_2 = [];
-flag = "";
-dropdownsCheckboxes = document.querySelectorAll(".filter__dropdown-checkbox");
+let arrCheckboxes = [],
+arrCheckboxes_2 = [],
+flag = "",
+dropdownsCheckboxes = document.querySelectorAll(".dropdown__checkbox");
+console.dir(dropdownsCheckboxes);
 
 for (let i = 0; i < dropdownsCheckboxes.length; i++) {
   dropdownsCheckboxes[i].addEventListener("change", (e) => {
@@ -43,6 +50,7 @@ for (let i = 0; i < dropdownsCheckboxes.length; i++) {
       if (e.target.checked) {
         let elemCheckbox = e.target.getAttribute("data-title");
         arrCheckboxes.push(elemCheckbox);
+        console.log(arrCheckboxes);
 
         btnElem.innerHTML = arrCheckboxes.join();
       } else {

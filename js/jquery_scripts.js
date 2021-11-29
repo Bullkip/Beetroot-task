@@ -112,7 +112,6 @@ jQuery(function ($) {
       type: "POST",
       beforeSend: "",
       success: function (data) {
-        console.log(data);
         $(".filter__items").html(data);
         // reload isotope items to display it
         $grid.isotope("reloadItems");
