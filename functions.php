@@ -89,11 +89,25 @@ add_action( 'after_setup_theme', 'beetroot_test_task_setup' );
 function beetroot_test_task_scripts() {
 	wp_enqueue_style( 'beetroot-test-task-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'beetroot-test-task-style', 'rtl', 'replace' );
-	wp_enqueue_script( 'beetroot-test-task-isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js',array('jquery') );
-	wp_enqueue_script( 'beetroot-test-task-scripts', get_template_directory_uri() . '/js/scripts.js', array('beetroot-test-task-isotope'), _S_VERSION, true );
+	wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js',array('jquery') );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', true );
+	wp_enqueue_script( 'ajax', get_template_directory_uri() . '/js/modules/ajax.js', true );
+	wp_enqueue_script( 'content', get_template_directory_uri() . '/js/modules/content.js', true );
+	wp_enqueue_script( 'footer', get_template_directory_uri() . '/js/modules/footer.js', true );
+	wp_enqueue_script( 'header', get_template_directory_uri() . '/js/modules/header.js', true );
+	
+
 	
 }
 add_action( 'wp_enqueue_scripts', 'beetroot_test_task_scripts' );
+
+
+
+/**
+ * Helpers.
+ */
+require get_template_directory() . '/inc/helpers-functions.php';
+
 
 /**
  * Ajax.
@@ -105,10 +119,7 @@ require get_template_directory() . '/inc/ajax-functions.php';
  */
 require get_template_directory() . '/inc/custom-types.php';
 
-/**
- * Helpers.
- */
-require get_template_directory() . '/inc/helpers-functions.php';
+
 
 /**
  * Menus.

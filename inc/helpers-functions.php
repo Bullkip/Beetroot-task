@@ -5,15 +5,60 @@
  * @package Beetroot_test-task
  */
 
-// show tags on post add/edit page
-function show_all_tags ( $args ) {
-    if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_POST['action'] ) && $_POST['action'] === 'get-tagcloud' ){
-		unset( $args['number'] );
-		$args['hide_empty']= 0 ;
-	}
-        
-    return $args;
+
+
+add_filter("script_loader_tag", "add_module_to_scripts", 10, 3);
+function add_module_to_scripts($tag, $handle, $src)
+{
+    if ("scripts" === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
 }
+
+
+add_filter("script_loader_tag", "add_module_to_footer", 10, 3);
+function add_module_to_footer($tag, $handle, $src)
+{
+    if ("footer" === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
+}
+add_filter("script_loader_tag", "add_module_to_header", 10, 3);
+function add_module_to_header($tag, $handle, $src)
+{
+    if ("header" === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
+}
+add_filter("script_loader_tag", "add_module_to_ajax", 10, 3);
+function add_module_to_ajax($tag, $handle, $src)
+{
+    if ("ajax" === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
+}
+add_filter("script_loader_tag", "add_module_to_content", 10, 3);
+function add_module_to_content($tag, $handle, $src)
+{
+    if ("content" === $handle) {
+        $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    }
+
+    return $tag;
+}
+
+
+
+ 
+
 
 add_filter( 'get_terms_args', 'show_all_tags' );
 

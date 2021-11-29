@@ -8,6 +8,7 @@
     "WordPress",
     "Theme"
   ],
+  "type":"module",
   "homepage": "https://github.com/Automattic/_s#readme",
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@wordpress/scripts": "^12.1.0",
     "dir-archiver": "^1.1.1",
     "node-sass": "^4.14.1",
