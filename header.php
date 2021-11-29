@@ -12,37 +12,37 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'beetroot-test-task' ); ?></a>
+    <?php wp_body_open(); ?>
 
-	<header  class="header">
-		<div class="header__container main-container">
-					<?php
+
+    <header class="header">
+        <div class="header__container main-container">
+            <?php
 					the_custom_logo();?>
-					<div class="header__lang-widget">
-						<a href="#" class="header__lang-toggle" ><span data-toggle="true"><?= _e('Eng','mydomain'); ?></span></a>
-						<ul class="header__lang-submenu">
-							<li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Укр','mydomain'); ?></a></li>
-							<li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Рус','mydomain'); ?></a></li>
-						</ul>
-					</div>
-				<nav  class="header__navigation">
-					<button type="button" class="header__navigation-btn">
-						<div></div>
-						<div></div>
-						<div></div>
-					</button>
-					<?php
+            <div class="header__lang-widget">
+                <a href="#" class="header__lang-toggle"><span data-toggle="true"><?= _e('Eng','mydomain'); ?></span></a>
+                <ul class="header__lang-submenu">
+                    <li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Укр','mydomain'); ?></a></li>
+                    <li class="header__lang-submenu-item"><a data-toggle href="#"><?= _e('Рус','mydomain'); ?></a></li>
+                </ul>
+            </div>
+            <nav class="header__navigation">
+                <button type="button" class="header__navigation-btn">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+                <?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'menu-header',
@@ -53,6 +53,6 @@
 						)
 					);
 					?>
-				</nav><!-- #site-navigation -->
-		</div>
-	</header><!-- #masthead -->
+            </nav><!-- #site-navigation -->
+        </div>
+    </header><!-- #masthead -->

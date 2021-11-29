@@ -11,9 +11,9 @@
 
 
 <? $vacancy_direction = get_field('direction_of_vacancy');
-                            $direction_check = $vacancy_direction == 'Beetroot SE' ? 'offices' :  'academies';
-                              $tags_list = wp_get_post_terms( $post->ID, 'tags' , array('fields' => 'slugs') );
-                             $tags_list_string = implode(" ",$tags_list); 
+    $direction_check = $vacancy_direction == 'Beetroot SE' ? 'offices' :  'academies';
+    $tags_list = wp_get_post_terms( $post->ID, 'tags' , array('fields' => 'slugs') );
+    $tags_list_string = implode(" ",$tags_list); 
 
                              ?>
 
@@ -38,8 +38,8 @@
         </p>
     </div>
     <div class="filter__item-footer">
-        <a href="#" class="filter__item-arrow-link">
-          <?=  _e('Details','mydomain'); ?> 
+        <a href="<? the_permalink() ?>" class="filter__item-arrow-link">
+            <?=  _e('Details','mydomain'); ?>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29px"
                 height="6px">
                 <path fill-rule="evenodd" fill="rgb(188, 32, 75)"
@@ -48,9 +48,9 @@
         </a>
         <div class="filter__item-department-tag">
             <?  $department_list = wp_get_post_terms( $post->ID, 'department' );
-                                   foreach( $department_list as $department){
-                                    echo  "<span class='filter__item-tag'>{$department->name}</span>";
-                                   } 
+                foreach( $department_list as $department){
+                echo  "<span class='filter__item-tag'>{$department->name}</span>";
+                } 
 
                                    ?>
         </div>
@@ -62,37 +62,37 @@
             </svg>
             <div class="filter__item-location-tags filter__item-tags">
                 <?php  
-                                        $term_list = wp_get_post_terms( $post->ID, $direction_check, array('fields' => 'names') );
-    
-                                        foreach( $term_list as $term ){
-                                        echo "<span class='filter__item-location-tag filter__item-tag'>{$term}<i>,&nbsp;</i></span>";   
-                                    }
-                                    ?>
+                $term_list = wp_get_post_terms( $post->ID, $direction_check, array('fields' => 'names') );
+
+                foreach( $term_list as $term ){
+                echo "<span class='filter__item-location-tag filter__item-tag'>{$term}<i>,&nbsp;</i></span>";   
+                }
+                ?>
             </div>
         </div>
         <div class="filter__item-tags">
             <?
-                                $tags_list = wp_get_post_terms( $post->ID, 'tags' );
-                                   foreach( $tags_list as $tag){
-                                        echo "<div class='filter__item-tag' data-tag='{$tag->name}'>
-                                              <span>{$tag->name}<i>,&nbsp;</i></span>
-                                              <svg class='filter__item-tag-icon' >
-                                               <use href='#{$tag->name}'  ></use>
-                                              </svg>
-                                              </div>";   
-                                    }
+            $tags_list = wp_get_post_terms( $post->ID, 'tags' );
+                foreach( $tags_list as $tag){
+                    echo "<div class='filter__item-tag' data-tag='{$tag->name}'>
+                            <span>{$tag->name}<i>,&nbsp;</i></span>
+                            <svg class='filter__item-tag-icon' >
+                            <use href='#{$tag->name}'  ></use>
+                            </svg>
+                            </div>";   
+                }
 
-                                   
-                                      ?>
+                
+                    ?>
 
         </div>
         <div class="filter__item-logo--footer">
             <?
-                                 $company_logo = get_field('company_logo');
-                                    $result_logo = $company_logo ? "<img src='{$company_logo}' alt='' class='filter__item-logo'>" : "";
-                                     echo $result_logo 
+            $company_logo = get_field('company_logo');
+            $result_logo = $company_logo ? "<img src='{$company_logo}' alt='' class='filter__item-logo'>" : "";
+                echo $result_logo 
 
-                                     ?>
+                ?>
         </div>
     </div>
 

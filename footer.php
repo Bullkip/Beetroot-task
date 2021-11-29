@@ -68,7 +68,7 @@
 					$icon_url = get_sub_field('icon_url');
 
 					if ($icon == 'library') {
-						echo 	'<li class="footer-socials__item '.$name.'">
+						echo 	'<li class="footer-socials__item">
 									<a href="'.$link.'">
 										<svg width="46px" height="45px">
 											<use href="#'.$name.'"></use>

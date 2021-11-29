@@ -1,47 +1,27 @@
 "use sctrict";
 
-let headerNavBtn = document.querySelector(".header__navigation-btn");
-let headerNavWrap = document.querySelector(".header__navigation-wrap");
+let headerNavBtn = document.querySelector(".header__navigation-btn"),
+  headerNavWrap = document.querySelector(".header__navigation-wrap"),
+  customFormBtnSubmit = document.querySelector(".subscribe-form__wrap-button"),
+  departmentBtn = document.querySelector(".dropdown-department-btn"),
+  locationBtn = document.querySelector(".dropdown-department-btn");
 
-let customFormEmailField = document.querySelector('.wpcf7-form input[type="email"]');
-let customFormEmailLabel= document.querySelector(".wpcf7-form .subscribe-form label");
-let customFormBtnSubmit = document.querySelector(".subscribe-form__wrap-button");
+if (departmentBtn) {
+  let defaultDepartmentValue = departmentBtn.value;
+}
 
-
-
-let departmentBtn = document.querySelector(".dropdown-department-btn");
-let locationBtn = document.querySelector(".dropdown-department-btn");
-
-let defaultDepartmentValue = departmentBtn.value;
-let defaultLocationValue = locationBtn.value;
-
-// header nav
-headerNavBtn.addEventListener("click", function () {
-  headerNavBtn.classList.toggle("change");
-  headerNavWrap.classList.toggle("change");
-});
-
-//  footer toggle label from subscription form
- customFormEmailField.addEventListener("click", (e) => {
-   customFormEmailLabel.classList.add("form-focus");
- });
-
-//  global document click (condition click cf7 email field) 
-document.addEventListener("click", (e) => {
-  if (e.target != customFormEmailField) {
-    customFormEmailLabel.classList.remove("form-focus");
-  }
-});
-
+//  submit on click footer form  btn 
+ 
 customFormBtnSubmit.addEventListener("click", () => {
   document.querySelector(".wpcf7-form").submit();
 });
 
 // footer paralax
 
-let footerHeight = document.querySelector('footer').offsetHeight,
-    mainMarginBoottom = document.querySelector("main").style.marginBottom = `${footerHeight}px`;
-
+let footerHeight = document.querySelector("footer.footer").offsetHeight,
+  mainMarginBoottom = (document.querySelector(
+    "main"
+  ).style.marginBottom = `${footerHeight}px`);
 
 // custom multiselect
 let arrCheckboxes = [];
@@ -54,7 +34,6 @@ for (let i = 0; i < dropdownsCheckboxes.length; i++) {
     let parentElem = e.target.closest(".filter__wrap--dropdown");
     btnElem = parentElem.querySelector(".dropdown__btn");
     btnElemDefaultValue = btnElem.getAttribute("data-title");
-    console.log(parentElem, btnElem, btnElemDefaultValue);
 
     if (flag == "") {
       flag = btnElemDefaultValue;
@@ -115,7 +94,7 @@ for (let i = 0; i < tooggleBtns.length; i++) {
     if (!toggleBtn.checked) {
       toggleBtn.classList.remove("hide");
       for (let i = 0; i < currentCheckboxes.length; i++) {
-       const currentCheckbox = currentCheckboxes[i];
+        const currentCheckbox = currentCheckboxes[i];
         currentCheckbox.checked = false;
         triggerEvent(currentCheckbox, "change");
       }
@@ -135,35 +114,30 @@ function triggerEvent(element, eventName) {
   element.dispatchEvent(event);
 }
 
-
-
 // more , less collapse
 
 let tags = document.querySelectorAll(".filter__tag-btn"),
-moreBtn = document.querySelector(".tag-more");
+  moreBtn = document.querySelector(".tag-more");
 
 for (let i = 0; i < tags.length; i++) {
   if (i > 10) {
     tags[i].classList.add("tag-hide");
   }
 }
-
-moreBtn.addEventListener("click", () => {
-  for (let i = 0; i < tags.length; i++) {
-    if (i > 10) {
-      tags[i].classList.toggle("tag-hide");
-      
+if (moreBtn) {
+  moreBtn.addEventListener("click", () => {
+    for (let i = 0; i < tags.length; i++) {
+      if (i > 10) {
+        tags[i].classList.toggle("tag-hide");
+      }
     }
-  }
-  if (moreBtn.textContent == "more") {
-    console.log("yes");
-    moreBtn.innerText = 'less';
-  } else {
-    console.log("no");
-     moreBtn.innerText = "more";
-  }
-});
-
+    if (moreBtn.textContent == "more") {
+      moreBtn.innerText = "less";
+    } else {
+      moreBtn.innerText = "more";
+    }
+  });
+}
 
 // Isotope modify, for disable default grid layout
 Isotope.Item.prototype._create = function () {
@@ -189,12 +163,9 @@ Isotope.prototype.arrange = function (opts) {
 
 Isotope.LayoutMode.create("none");
 
-
-// layout post tabs
-const layoutBtns = document.querySelectorAll(
-  "button.filter__tag-layout-item"
-);
-postsParent = document.querySelector(".filter__items");
+// layout post tab
+const layoutBtns = document.querySelectorAll("button.filter__tag-layout-item"),
+      postsParent = document.querySelector(".filter__items");
 
 let setIndex = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -215,10 +186,10 @@ for (let i = 0; i < layoutBtns.length; i++) {
     newArr.splice(elemIndex, 1);
     newArr[0].classList.remove("filter__tag-layout-item--active");
 
-    if (layoutBtn.classList.contains('list')) {
+    if (layoutBtn.classList.contains("list")) {
       postsParent.classList.add("filter__items--row");
     } else {
-      postsParent.classList.remove("filter__items--row"); 
+      postsParent.classList.remove("filter__items--row");
     }
   });
 }
