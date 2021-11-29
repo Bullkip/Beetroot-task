@@ -36,6 +36,7 @@ function beetroot_test_task_pingback_header() {
 }
 
 
+
 // add cutom class name to menu items
 add_action( 'wp_head', 'beetroot_test_task_pingback_header' );
 
