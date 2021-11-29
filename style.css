@@ -2145,13 +2145,11 @@ main {
 	display: -ms-flexbox;
 	display: flex;
 	overflow: hidden;
-	-webkit-transition: -webkit-box-shadow,
- -webkit-transition 0.4s ease-in-out;
+	-webkit-transition: -webkit-box-shadow, -webkit-transition 0.4s ease-in-out;
 	transition: -webkit-box-shadow, -webkit-transition 0.4s ease-in-out;
 	-o-transition: box-shadow, -o-transition 0.4s ease-in-out;
 	transition: box-shadow, transition 0.4s ease-in-out;
-	transition: box-shadow, transition 0.4s ease-in-out, -webkit-box-shadow,
- -webkit-transition 0.4s ease-in-out, -o-transition 0.4s ease-in-out;
+	transition: box-shadow, transition 0.4s ease-in-out, -webkit-box-shadow, -webkit-transition 0.4s ease-in-out, -o-transition 0.4s ease-in-out;
 	border-radius: 20px;
 	padding: 24px;
 	background-color: #fff;
@@ -3193,7 +3191,6 @@ main {
 		-ms-grid-columns: 1fr;
 		grid-template-columns: 1fr;
 	}
-
 	.filter__posts .filter__tag-layout-mode {
 		display: none;
 	}
@@ -3203,7 +3200,6 @@ main {
 	.benefit svg {
 		transform: translate(-50%, -50%) scale(2);
 	}
-
 }
 
 @media only screen and (max-width: 480px) {
