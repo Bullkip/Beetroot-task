@@ -34,7 +34,6 @@ for (let i = 0; i < dropdownsCheckboxes.length; i++) {
     let parentElem = e.target.closest(".filter__wrap--dropdown");
     btnElem = parentElem.querySelector(".dropdown__btn");
     btnElemDefaultValue = btnElem.getAttribute("data-title");
-    console.log(parentElem, btnElem, btnElemDefaultValue);
 
     if (flag == "") {
       flag = btnElemDefaultValue;
@@ -133,10 +132,8 @@ if (moreBtn) {
       }
     }
     if (moreBtn.textContent == "more") {
-      console.log("yes");
       moreBtn.innerText = "less";
     } else {
-      console.log("no");
       moreBtn.innerText = "more";
     }
   });
