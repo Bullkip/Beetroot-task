@@ -11,6 +11,29 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
+function beetroot_test_task_body_classes( $classes ) {
+	// Adds a class of hfeed to non-singular pages.
+	if ( ! is_singular() ) {
+		$classes[] = 'hfeed';
+	}
+
+	// Adds a class of no-sidebar when there is no sidebar present.
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+		$classes[] = 'no-sidebar';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'beetroot_test_task_body_classes' );
+
+/**
+ * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+ */
+function beetroot_test_task_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	}
+}
 
 
 // add cutom class name to menu items
@@ -112,8 +135,9 @@ function filter(){
 		}
 	}
 
+
 	// for offices 
-	if( $offices  ) {
+		if( $offices  ) {
 			foreach( $offices as $office ) {
 				if( isset( $_POST['office_' . $office->term_id ] ) && $_POST['office_' . $office->term_id] == 'on' )
 					$all_offices[] = $office->term_id;
@@ -135,8 +159,8 @@ function filter(){
 			}
 	}
 
-	// for academies
-	if( $academies ) {
+		// for offices 
+		if( $academies ) {
 			foreach( $academies as $academy ) {
 				if( isset( $_POST['academy_' . $academy->term_id ] ) && $_POST['academy_' . $academy->term_id] == 'on' )
 					$all_academies[] = $academy->term_id;
@@ -156,25 +180,59 @@ function filter(){
 	}
 
 
-	$args = array(
+
+	
+    // // for search title post 
+	// if (isset($_POST[filter-input])) {
+	// 	$args = array(
+    //         'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+    //         'tax_query' => $tax_query,
+    //         's' => $_GET['filter-input'],
+    //     );
+
+	// } else {
+		
+	// 		$args = array(
+	// 	'posts_per_page' => -1,
+	// 	'post_type'   => 'vacancy',
+	// 	'orderby' => 'date', // сортировка по дате у нас будет в любом случае (но вы можете изменить/доработать это)
+	// 	'order'	=> 'DESC', // ASC или DESC
+	// 	'tax_query' => $tax_query,
+
+	// );
+	// }
+
+			$args = array(
 		'posts_per_page' => -1,
 		'post_type'   => 'vacancy',
 		'orderby' => 'date', 
 		'order'	=> 'DESC', 
 		'tax_query' => $tax_query,
+
 	);
 
 	
 	global $post;
+
+	
+
 	$query = new WP_Query;
     $myposts = $query->query($args);
+
 	foreach( $myposts as $post ){
 	
 	setup_postdata($post);
 	
+
 	get_template_part( 'template-parts/content-job-posts');
+
 	}
+
 	wp_reset_postdata();
+ 
 	die();
 }
 
@@ -205,6 +263,8 @@ function my_acf_op_init() {
 			'post_id'		=> 'socials'
         ));
     }
+
+
 }
 // add option (footer) page
 add_action('acf/init', 'my_footer_op_init');
