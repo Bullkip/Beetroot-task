@@ -8,9 +8,7 @@
 // add option (socials) page
 add_action('acf/init', 'my_acf_op_init');
 function my_acf_op_init() {
-
     if( function_exists('acf_add_options_page') ) {
-
         $option_page = acf_add_options_page(array(
             'page_title'    => __('Socials Settings'),
             'menu_title'    => __('Socials'),
@@ -20,15 +18,11 @@ function my_acf_op_init() {
 			'post_id'		=> 'socials'
         ));
     }
-
-
 }
 // add option vacancy page
 add_action('acf/init', 'vacancy_options_init');
 function vacancy_options_init() {
-
     if( function_exists('acf_add_options_page') ) {
-
         $option_page = acf_add_options_page(array(
             'page_title'    => __('Vacancy main settings'),
             'menu_title'    => __('Vacancy setting'),
@@ -38,13 +32,10 @@ function vacancy_options_init() {
 			'post_id'		=> 'vacancy_settings'
         ));
     }
-
-
 }
 // add option (footer) page
 add_action('acf/init', 'my_footer_op_init');
 function my_footer_op_init() {
-
     if( function_exists('acf_add_options_page') ) {
 
         $option_page = acf_add_options_page(array(
@@ -56,7 +47,5 @@ function my_footer_op_init() {
 			'post_id'		=> 'footer'
         ));
     }
-
-
 }
 
