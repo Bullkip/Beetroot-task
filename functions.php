@@ -51,7 +51,7 @@ add_action('after_setup_theme', 'beetroot_test_task_setup');
  * Enqueue scripts and styles.
  */
 function beetroot_test_task_scripts() {
-    wp_enqueue_style('beetroot-test-task-style', get_stylesheet_uri(), array(), _S_VERSION);
+    wp_enqueue_style('beetroot-test-task-style', get_stylesheet_uri(), array());
     wp_style_add_data('beetroot-test-task-style', 'rtl', 'replace');
     wp_enqueue_script('isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array('jquery'));
     wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', true);

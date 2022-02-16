@@ -5,7 +5,7 @@
  */
 
 // add cutom class name to menu items
-add_action('wp_head', 'beetroot_test_task_pingback_header');
+
 add_filter('nav_menu_css_class', 'change_header_menu_css_classes', 10, 4);
 add_filter('nav_menu_css_class', 'change_footer_1_menu_css_classes', 10, 4);
 add_filter('nav_menu_css_class', 'change_footer_2_menu_css_classes', 10, 4);
